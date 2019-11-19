@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +9,7 @@ export class AppComponent {
   navLinks: any[];
   activeLinkIndex = 0;
   constructor(private router: Router) {
+    // this.router.navigate(['/login']);
     this.navLinks = [
       {
         label: 'Dashboard',
