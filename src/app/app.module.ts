@@ -9,6 +9,9 @@ import { TaskAssignmentComponent } from './task-assignment/task-assignment.compo
 import { InsightsComponent } from './insights/insights.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatMenuModule,
+    MatIconModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
