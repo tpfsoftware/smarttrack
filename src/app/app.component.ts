@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'smart-track';
+  navLinks: any[];
+  activeLinkIndex = 0;
+  constructor(private router: Router) {
+    this.navLinks = [
+      {
+        label: 'Dashboard',
+        link: '/dashboard',
+        index: 0
+      }, {
+        label: 'Assignment',
+        link: '/task-assignment',
+        index: 1
+      }, {
+        label: 'Insights',
+        link: '/insights',
+        index: 2
+      },
+    ];
+
+    this.router.events.subscribe((res) => {
+      this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
+    });
+  }
 }
