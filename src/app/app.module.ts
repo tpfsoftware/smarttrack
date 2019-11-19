@@ -14,7 +14,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { LoginComponent } from './login/login.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTabsModule,
     FlexLayoutModule,
     FormsModule, ReactiveFormsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatMenuModule,
+    MatIconModule,
   ],
   providers: [AppServiceService, DemoMaterialModule],
   bootstrap: [AppComponent],
