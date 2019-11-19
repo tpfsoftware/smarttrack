@@ -27,6 +27,7 @@ export class AppComponent {
     ];
 
     this.router.events.subscribe((res) => {
+      console.log(res)
       this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
     });
   }
