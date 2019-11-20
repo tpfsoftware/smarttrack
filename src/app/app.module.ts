@@ -36,8 +36,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatNativeDateModule,
     MatMenuModule,
     MatIconModule,
+    DemoMaterialModule
   ],
-  providers: [AppServiceService, DemoMaterialModule],
+  providers: [AppServiceService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

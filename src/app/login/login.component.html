@@ -1,20 +1,21 @@
 <div class="login-wrapper" fxLayout="row" >  
-        <div class="item" >  
-            <img fxFlex="100" src="../../assets/login/login-bg.jpg"/>
+        <div fxFlex="50" class="login-bg" >  
+            <!-- <img  src="../../assets/login/login-bg.jpg"/> -->
         </div>
-        <div fxFlex="100" class="example-container">
-                <mat-form-field>
-                  <!-- <img src="../../assets/login/login-bg.jpg"/> -->
+        <div fxFlex="50" class="example-container">
+                  <div class="logo">
+                      <img fxFlex="50" src="../../assets/login/logo.svg"/>
+                  </div>        
+                <mat-form-field class="user-info">
+                    <mat-label>Username</mat-label>
+                    <input matInput>
                 </mat-form-field>
-              
-                <mat-form-field>
-                  <textarea matInput placeholder="Textarea"></textarea>
+                <mat-form-field class="user-info" >
+                    <mat-label>Password</mat-label>
+                    <input matInput >
                 </mat-form-field>
-              
-                <mat-form-field>
-                  <mat-select placeholder="Select">
-                    <mat-option value="option">Option</mat-option>
-                  </mat-select>
-                </mat-form-field>
+              <button mat-raised-button color="primary" class="login-btn" (click)="login()">Login</button>
+                  
+                
         </div>
   </div>

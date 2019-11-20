@@ -1,28 +1,2 @@
 <!-- Toolbar -->
-<div fxLayout="row" class="toolbar" role="banner">
-    <div fxFlex="50">
-        <img src="assets/logo.png" class="top-rapid-logo" />
-    </div>
-    <div fxFlex="50">
-        <div class="profile" [mat-menu-trigger-for]="user">
-            <div class="pull-left">
-                <div class="name">Ismuddin</div>
-                <div class="design">Duty Manager</div>
-            </div>
-            <img class="image-block" src="assets/profile-icon.png" />
-        </div>
-        <mat-menu #user="matMenu" class="opt-menu i-opt-menu">
-            <button mat-menu-item>
-                <mat-icon>exit_to_app</mat-icon>Log out
-            </button>
-        </mat-menu>
-    </div>
-</div>
-<div class="div-area">
-    <nav mat-tab-nav-bar>
-        <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive"
-            [active]="rla.isActive">{{link.label}}
-        </a>
-    </nav>
-</div>
 <router-outlet></router-outlet>
