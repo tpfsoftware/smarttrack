@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,10 +11,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     console.log("inside login")
   }
 
+
+  submit()
+  {
+    this.router.navigate(['/layout']);
+  }
 }
