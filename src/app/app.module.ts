@@ -16,6 +16,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { LayoutComponent } from './layout/layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
     TaskAssignmentComponent,
     InsightsComponent,
     LoginComponent,
+    LayoutComponent,
    
   ],
   imports: [

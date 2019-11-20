@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
-  user: any = {};
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
     console.log("inside login")
   }
   login(){
-    
+    console.log("login")
+    this.router.navigate(['/layout']);
   }
-
 }
