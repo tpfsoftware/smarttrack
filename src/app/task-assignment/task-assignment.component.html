@@ -1,1 +1,90 @@
-<div>task-assignment works!</div>
+<div class="container" fxLayout="row" fxLayoutAlign="center"> 
+        <mat-form-field fxFlex="25" >
+                <span >
+                    <mat-icon>search</mat-icon>
+                  </span>
+                <input type="text" name="search" matInput placeholder="Search for flights , bays or assets" class=""
+                  [(ngModel)]="searchText">
+              </mat-form-field>
+</div>
+<div class="container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
+        <mat-card  class="asset-title" fxFlex="35">
+                <mat-card-title class="bay-det" fxLayout="row">
+                   <h6 fxFlex="95" >Bay 21</h6>
+                   <h6 fxFlex="5"> Edit</h6>
+                </mat-card-title>
+                <mat-card-subtitle fxLayout="row">
+                    <div fxFlex="90">
+                            <h5>DEL</h5>
+                            <h3>SG609</h3>
+                    </div>
+                    <div fxFlex="10">
+                            <h5>IXB</h5>
+                            <h3>SG609</h3>
+                    </div>
+                </mat-card-subtitle>
+                <div class="car-border"></div>
+                <mat-card-content >
+                    <div fxLayout="row" fxLayoutGap="5px" >
+                            <h5 fxFlex="20">Baggage Truck</h5> 
+                            <div fxFlex="80">
+                                <div fxLayout="row" fxLayoutGap="5px">
+                                        <h5 class="equip" fxFlex="25">BT101</h5>
+                                        <h5 class="equip" fxFlex="25">BT102</h5> 
+                                </div>                               
+                            </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="5px" >
+                            <h5 fxFlex="20">Catering</h5> 
+                            <div fxFlex="80">
+                                <div fxLayout="row" fxLayoutGap="5px">
+                                        <h5 class="equip" style="background-color:#B2B7FF" fxFlex="25">CT101</h5>
+                                        <h5 class="equip" style="background-color:#B2B7FF" fxFlex="25">CT102</h5> 
+                                </div>                               
+                            </div>
+                    </div>                     
+                    <div fxLayout="row" fxLayoutGap="5px" >
+                            <h5 fxFlex="20">Step Ladder</h5> 
+                            <div fxFlex="80">
+                                <div fxLayout="row" fxLayoutGap="5px">
+                                        <h5 class="equip"  style="background-color:#95E48D" fxFlex="25">ST101</h5>
+                                </div>                               
+                            </div>
+                    </div> 
+                    <div fxLayout="row" fxLayoutGap="5px" >
+                            <h5 fxFlex="20">Bus</h5> 
+                            <div fxFlex="80">
+                                <div fxLayout="row" fxLayoutGap="5px">
+                                        <h5 class="equip"  style="background-color:#B6B6B6" fxFlex="25">BU101</h5>
+                                </div>                               
+                            </div>
+                    </div>
+                </mat-card-content>
+        </mat-card>
+        <mat-card fxFlex="35">
+                <mat-card-title>
+                   bay details
+                </mat-card-title>
+                <mat-card-content>
+yes
+                </mat-card-content>
+        </mat-card>
+</div>
+<!-- <div class="container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
+        <mat-card fxFlex="35">
+                <mat-card-title>
+                   bay details
+                </mat-card-title>
+                <mat-card-content>
+yes
+                </mat-card-content>
+        </mat-card>
+        <mat-card fxFlex="35">
+                <mat-card-title>
+                   bay details
+                </mat-card-title>
+                <mat-card-content>
+yes
+                </mat-card-content>
+        </mat-card>
+</div> -->
