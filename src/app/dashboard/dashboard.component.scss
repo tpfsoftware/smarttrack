@@ -1,0 +1,29 @@
+.dashboard-area {
+  height: 84vh;
+  overflow: hidden;
+}
+
+agm-map {
+  height: 100%;
+}
+
+.equip-details {
+  width: 440px;
+  height: 48px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 24px;
+  opacity: 1;
+  position: absolute;
+  bottom: 2%;
+  font-size: 13px;
+  right: 2%;
+  font-weight: 600;
+  align-items: center;
+}
+
+.fh-img
+{
+  padding: 0px 12px;
+  margin: -5px 0px;
+}

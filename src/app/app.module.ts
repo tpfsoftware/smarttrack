@@ -17,6 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { LayoutComponent } from './layout/layout.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapStyleJson } from './map-style';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,9 +41,13 @@ import { LayoutComponent } from './layout/layout.component';
     MatNativeDateModule,
     MatMenuModule,
     MatIconModule,
-    DemoMaterialModule
+    DemoMaterialModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBtQQhZG8m6EA5qNPeg3rGZflQNwuI_kag',
+      libraries: ["places", "geometry"]
+    })
   ],
-  providers: [AppServiceService],
+  providers: [AppServiceService,MapStyleJson],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
