@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LayoutComponent implements OnInit {
   navLinks: any[];
@@ -18,7 +19,7 @@ export class LayoutComponent implements OnInit {
         link: 'dashboard',
         index: 0
       }, {
-        label: 'Assignment',
+        label: 'Assets',
         link: 'task-assignment',
         index: 1
       }, {

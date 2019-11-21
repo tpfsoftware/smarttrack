@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
