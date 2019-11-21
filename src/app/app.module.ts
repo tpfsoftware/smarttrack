@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { LayoutComponent } from './layout/layout.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { LayoutComponent } from './layout/layout.component';
     MatNativeDateModule,
     MatMenuModule,
     MatIconModule,
-    DemoMaterialModule
+    DemoMaterialModule,
+    RouterModule
   ],
   providers: [AppServiceService],
   bootstrap: [AppComponent],
