@@ -34,14 +34,22 @@ export class DashboardComponent implements OnInit {
     iconUrl: '/assets/dashboard/bay.svg'
   }];
   assetMarkers: any = [];
-
+  showEquip: boolean;
+  
 
 
   constructor(private mapStyle: MapStyleJson) {
     this.mstyles = this.mapStyle.styles;
   }
 
+
+
+
   ngOnInit() {
+    this.initMap();
+  }
+
+  initMap() {
     this.assetMarkers = [{
       lat: 12.99599,
       lng: 80.16639,
@@ -67,8 +75,28 @@ export class DashboardComponent implements OnInit {
       label: 'Bay 4',
       iconUrl: '/assets/dashboard/stepladder.svg'
     }];
+  } 
 
-
+  closeModal() {
+    this.initMap();
+    this.showEquip = false;
   }
 
+  clickedMarker(value, index) {
+    this.assetMarkers = [];
+    this.showEquip = true;
+    console.log(value, index)
+    this.assetMarkers = [{
+      lat: 12.99746,
+      lng: 80.16877,
+      label: 'Bay 3',
+      iconUrl: '/assets/dashboard/catering-icon.svg'
+    },
+    {
+      lat: 12.99646,
+      lng: 80.16477,
+      label: 'Bay 4',
+      iconUrl: '/assets/dashboard/stepladder-icon.svg'
+    }];
+  }
 }

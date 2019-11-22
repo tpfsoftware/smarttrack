@@ -22,8 +22,113 @@ agm-map {
   align-items: center;
 }
 
-.fh-img
+.equip-detail
 {
+  width: 440px;
+  height: 48px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  opacity: 1;
+  position: absolute;
+  bottom: 2%;
+  font-size: 13px;
+  right: 2%;
+  font-weight: 600;
+  align-items: center;
+}
+
+.fh-img {
   padding: 0px 12px;
   margin: -5px 0px;
+}
+
+.flight-card {
+  position: absolute;
+  bottom: 2%;
+  font-size: 13px;
+  right: 1%;
+}
+
+.flight-title {
+  width: 472px;
+  position: absolute;
+  bottom: 95%;
+  font-size: 13px;
+  right: 0%;
+  height: 45px;
+  background: #00327C 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 12px 12px 0px 0px;
+  opacity: 1;
+}
+
+.flight-details {
+  width: 440px;
+  height: 170px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 12px;
+  opacity: 1;
+}
+
+.close {
+  padding: 6px;
+  float: right;
+  cursor: pointer;
+}
+
+.bay-no {
+  text-align: center;
+  font-size:24px;
+  letter-spacing: 0.24px;
+  color: #FFFFFF;
+  padding: 12px;
+}
+
+.source {
+  letter-spacing: 0;
+  color: #666666;
+  font-size: 16px;
+  opacity: 1;
+}
+
+
+.flt-no {
+  letter-spacing: 0;
+  color: #000000;
+  font-size: 32px;
+  opacity: 1;
+}
+
+.details {
+  opacity: 1;
+  font-size: 14px;
+  margin:6px 0px;
+  letter-spacing: 0.12px;
+  color: #000000;
+}
+
+.turn-details {
+  background: #60890D40 0% 0% no-repeat padding-box;
+  border: 1px solid #60890D;
+  border-radius: 6px;
+  opacity: 1;
+  padding:3px;
+  text-align: center;
+  letter-spacing: 0;
+  width: 225px;
+  color: #000000;
+  opacity: 1;
+  font-size: 15px;
+  display: block;
+  margin: 0px auto;
+  font-weight: 500;
+}
+
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
 }
