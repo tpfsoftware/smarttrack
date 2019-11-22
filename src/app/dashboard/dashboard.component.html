@@ -10,7 +10,7 @@
             </agm-info-window>
         </agm-marker>
 
-        <agm-marker *ngFor="let m of assetMarkers; let i = index" [animation]="DROP" [iconUrl]="m.iconUrl"
+        <agm-marker *ngFor="let m of assetMarkers; let i = index"  [iconUrl]="m.iconUrl"
             [latitude]="m.lat" [longitude]="m.lng" [markerDraggable]="false">
             <agm-info-window>
 
