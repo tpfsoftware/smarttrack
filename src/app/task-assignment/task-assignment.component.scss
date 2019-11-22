@@ -1,6 +1,13 @@
 .container{
     margin: 5%;
-    // height: 100vh;
+}
+.bay-info{
+    height: 7%;
+    color: white;
+    font-size: 21px;
+}
+.bay-card{
+    margin-top: -10px;
 }
 .search-icon{
     color:#666666
@@ -12,8 +19,7 @@ html{
     overflow: hidden;
 }
 .asset-title{
-    // background-color: #00327C;
-    // max-height: 30px
+    border-radius: 13px !important;
 }
 .bay-det{
     margin-top: -4% !important;
