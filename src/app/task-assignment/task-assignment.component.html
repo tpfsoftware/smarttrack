@@ -1,4 +1,4 @@
-<div class="container" fxLayout="row" fxLayoutAlign="center"> 
+<!-- <div class="container" fxLayout="row" fxLayoutAlign="center"> 
         <mat-form-field fxFlex="25" >
                 <span >
                     <mat-icon>search</mat-icon>
@@ -6,23 +6,38 @@
                 <input type="text" name="search" matInput placeholder="Search for flights , bays or assets" class=""
                   [(ngModel)]="searchText">
               </mat-form-field>
-</div>
-<div class="container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
+</div> -->
+
+        <div fxLayout="row" class="bay-info" style="margin-top: 6%;" fxLayoutAlign="center" fxLayoutGap="30px">
+                <div fxFlex="35" style="background-color: rgb(0, 50, 124);border-top-left-radius: 12px;border-top-right-radius: 12px;">
+                        <div fxLayout="row">
+                                        <h4 style="margin-left: 4%;" fxFlex="90">Bay 21</h4>
+                                        <h4 style="margin-right: 3%;color:#AEE1FF !important;font-size: 69%" fxFlex="10" (click)="edit()"> Edit</h4>
+                        </div>
+                                
+                </div>
+                <div fxFlex="35" style="background-color: rgb(0, 50, 124);border-top-left-radius: 12px;border-top-right-radius: 12px;">
+                                <div fxLayout="row" >
+                                                <h4 style="margin-left: 4%;" fxFlex="90">Bay 21</h4>
+                                                <h4 style="margin-right: 3%;color:#AEE1FF !important;font-size: 69%" fxFlex="10"> Edit</h4>
+                                </div>
+                                        
+                        </div>
+        </div>
+           
+   
+<div fxLayout="row" class="bay-card" fxLayoutAlign="center" fxLayoutGap="30px">       
         <mat-card  class="asset-title" fxFlex="35">
                 <mat-card-title class="bay-det" fxLayout="row">
-                   <h6 fxFlex="95" >Bay 21</h6>
-                   <h6 fxFlex="5"> Edit</h6>
+                        <div fxFlex="85">
+                                <h5>DEL</h5>
+                                <h5>SG609</h5>
+                        </div>
+                        <div fxFlex="15">
+                                <h5>IXB</h5>
+                                <h5>SG609</h5>
+                        </div>
                 </mat-card-title>
-                <mat-card-subtitle fxLayout="row">
-                    <div fxFlex="90">
-                            <h5>DEL</h5>
-                            <h3>SG609</h3>
-                    </div>
-                    <div fxFlex="10">
-                            <h5>IXB</h5>
-                            <h3>SG609</h3>
-                    </div>
-                </mat-card-subtitle>
                 <div class="car-border"></div>
                 <mat-card-content >
                     <div fxLayout="row" fxLayoutGap="5px" >
@@ -61,30 +76,59 @@
                     </div>
                 </mat-card-content>
         </mat-card>
-        <mat-card fxFlex="35">
-                <mat-card-title>
-                   bay details
-                </mat-card-title>
-                <mat-card-content>
-yes
-                </mat-card-content>
-        </mat-card>
+        <mat-card  class="asset-title" fxFlex="35">
+                        <mat-card-title class="bay-det" fxLayout="row">
+                                <div fxFlex="85">
+                                        <h5>MAA</h5>
+                                        <h5>SG609</h5>
+                                </div>
+                                <div fxFlex="15">
+                                        <h5>CCU</h5>
+                                        <h5>SG609</h5>
+                                </div>
+                        </mat-card-title>
+                        <div class="car-border"></div>
+                        <mat-card-content >
+                            <div fxLayout="row" fxLayoutGap="5px" >
+                                    <h5 fxFlex="20">Baggage Truck</h5> 
+                                    <div fxFlex="80">
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                                <h5 class="equip" fxFlex="25">BT101</h5>
+                                                <h5 class="equip" fxFlex="25">BT102</h5> 
+                                        </div>                               
+                                    </div>
+                            </div>
+                            <div fxLayout="row" fxLayoutGap="5px" >
+                                    <h5 fxFlex="20">Catering</h5> 
+                                    <div fxFlex="80">
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                                <h5 class="equip" style="background-color:#B2B7FF" fxFlex="25">CT101</h5>
+                                                <h5 class="equip" style="background-color:#B2B7FF" fxFlex="25">CT102</h5> 
+                                        </div>                               
+                                    </div>
+                            </div>                     
+                            <div fxLayout="row" fxLayoutGap="5px" >
+                                    <h5 fxFlex="20">Step Ladder</h5> 
+                                    <div fxFlex="80">
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                                <h5 class="equip"  style="background-color:#95E48D" fxFlex="25">ST101</h5>
+                                        </div>                               
+                                    </div>
+                            </div> 
+                            <div fxLayout="row" fxLayoutGap="5px" >
+                                    <h5 fxFlex="20">Bus</h5> 
+                                    <div fxFlex="80">
+                                        <div fxLayout="row" fxLayoutGap="5px">
+                                                <h5 class="equip"  style="background-color:#B6B6B6" fxFlex="25">BU101</h5>
+                                        </div>                               
+                                    </div>
+                            </div>
+                        </mat-card-content>
+                </mat-card>
 </div>
-<!-- <div class="container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
-        <mat-card fxFlex="35">
-                <mat-card-title>
-                   bay details
-                </mat-card-title>
-                <mat-card-content>
-yes
-                </mat-card-content>
-        </mat-card>
-        <mat-card fxFlex="35">
-                <mat-card-title>
-                   bay details
-                </mat-card-title>
-                <mat-card-content>
-yes
-                </mat-card-content>
-        </mat-card>
-</div> -->
+<div style="margin-left: 88%;">
+        <button style="border-radius: 20px;
+            border: solid 1px #ED2024;
+                    color: #FFFFFF; font-size: 173%; " mat-raised-button color="warn" (click)="add()">+</button>
+        
+</div>

@@ -20,6 +20,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapStyleJson } from './map-style';
 import { RouterModule } from '@angular/router';
+import { AddAssetComponent } from './task-assignment/add-asset/add-asset.component';
+import { EditAssetComponent } from './task-assignment/edit-asset/edit-asset.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,13 @@ import { RouterModule } from '@angular/router';
     InsightsComponent,
     LoginComponent,
     LayoutComponent,
+    AddAssetComponent,
+    EditAssetComponent,
    
+  ], 
+  entryComponents: [
+    AddAssetComponent,
+    EditAssetComponent
   ],
   imports: [
     BrowserModule,
