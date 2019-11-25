@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl,FormGroup,Validator } from '@angular/forms'
+
 
 
 @Component({
@@ -8,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  username: string;
+  password: string;
 
   constructor(private router: Router) { }
 
@@ -16,6 +20,11 @@ export class LoginComponent implements OnInit {
   }
   login(){
     console.log("login")
-    this.router.navigate(['/layout']);
+    if(this.username == 'admin' && this.password == '1234'){
+      this.router.navigate(["/layout"]);
+     }else {
+       alert("Authentication error");
+     }
+ 
   }
 }
