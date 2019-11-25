@@ -1,13 +1,20 @@
 .example-container {
   flex-direction: column;
   text-align: center;
-  padding-top: 13%;
+  background: #F1F1F7 0% 0% no-repeat padding-box;
+  height: 550px;
+  width: 440px;
+  border-radius: 12px;
+  opacity: 1;
 }
-.logo{
-  margin-left: 28%;
+
+.logo {
+  padding: 60px 0px;
 }
-.login-bg{
-  background: Url('assets/login/login-bg.jpg');
+
+
+.login-bg {
+  background: Url('assets/login/login-bg.png');
   height: 100vh;
   align-items: center;
   text-align: -webkit-center;
@@ -15,20 +22,32 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.login-wrapper{
+
+.login-wrapper {
   background-color: #f1f1f7;
   overflow: hidden;
 }
-.example-container > * {
+
+.example-container>* {
   width: 100%;
 }
-.user-info{
-  max-width: 61%;
-  padding-left: 19%;
+
+.user-info {
+  max-width: 90%;
 }
-.login-btn{
+
+.login-btn {
   background-color: #004391 !important;
-  max-width: 61% !important;
-  margin-left: 19% !important;
-  margin-top: 7% !important;
+  max-width: 90% !important;
+  height: 50px;
+  margin-top: 8% !important;
+}
+
+.login-foot {
+  text-align: center;
+  letter-spacing: 0;
+  color: #43425D;
+  opacity: 1;
+  font-size: 13px;
+  margin: 72px 0px;
 }
