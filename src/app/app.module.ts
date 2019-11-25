@@ -22,6 +22,7 @@ import { MapStyleJson } from './map-style';
 import { RouterModule } from '@angular/router';
 import { AddAssetComponent } from './task-assignment/add-asset/add-asset.component';
 import { EditAssetComponent } from './task-assignment/edit-asset/edit-asset.component';
+import {AppUrlServiceService} from './app-url-service.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,7 @@ import { EditAssetComponent } from './task-assignment/edit-asset/edit-asset.comp
     }),
     RouterModule
   ],
-  providers: [AppServiceService,MapStyleJson],
+  providers: [AppServiceService,AppUrlServiceService,AppServiceService,MapStyleJson],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,7 +1,8 @@
 import { Component, OnInit ,ViewEncapsulation} from '@angular/core';
 import { MatDialog } from "@angular/material";
 import {AddAssetComponent} from './add-asset/add-asset.component'
-import {EditAssetComponent} from './edit-asset/edit-asset.component'
+import {EditAssetComponent} from './edit-asset/edit-asset.component';
+import {AppUrlServiceService} from '../app-url-service.service'
 @Component({
   selector: 'app-task-assignment',
   templateUrl: './task-assignment.component.html',
@@ -10,7 +11,7 @@ import {EditAssetComponent} from './edit-asset/edit-asset.component'
 })
 export class TaskAssignmentComponent implements OnInit {
 
-  constructor(private dialog:MatDialog) { }
+  constructor(private dialog:MatDialog,private appUrl:AppUrlServiceService) { }
 
   ngOnInit() {
   }

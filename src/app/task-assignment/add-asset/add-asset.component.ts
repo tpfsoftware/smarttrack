@@ -1,5 +1,7 @@
 import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import {AppUrlServiceService} from '../../app-url-service.service';
+import {AppServiceService} from '../../app-service.service'
 @Component({
   selector: 'app-add-asset',
   templateUrl: './add-asset.component.html',
@@ -11,16 +13,27 @@ export class AddAssetComponent implements OnInit {
   baggage:any=["BT101","BT102","BT103","BT104"];
   catering:any=["CT101","CT102","CT103"];
   ladder:any=["ST101","ST102"];
-  bus:any=["BU101"]
-  constructor( private dialogRef: MatDialogRef<AddAssetComponent>) { }
+  buses:any=["BU101"]
+  constructor( private dialogRef: MatDialogRef<AddAssetComponent>,private appUrl:AppUrlServiceService,private services:AppServiceService) { }
 
   ngOnInit() {
+    this.getMaster();
+  }
+  getMaster(){
+    this.services.getAll(this.appUrl.geturlfunction('BAY_MASTER')).subscribe(res => {
+      if (res.status === true) {
+        console.log(res.data)
+      }
+    })
   }
   cancel(){
     this.dialogRef.close();
   }
   add(){
     this.dialogRef.close();
+  }
+  click(){
+    console.log("yes")
   }
 
 }
