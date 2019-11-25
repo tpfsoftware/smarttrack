@@ -6,7 +6,7 @@
                 <h2>Bay     21</h2>
             </div>
 </div>
-<div fxLayout="row" style="margin-top: 3%;">
+<div fxLayout="row" class="truck">
     <h4>BAGGAGE TRUCK</h4>
 </div>
 <div fxLayout="row" fxLayoutGap="20px">
@@ -38,14 +38,10 @@
                 <h5 class="equip"  style="background-color:#171717;color:#FFFFFF" fxFlex="25">BU102</h5>
                 <h5 class="equip"  style="background-color:#B6B6B6" fxFlex="25">BU103</h5>
 </div>  
-<div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="40px" style="margin-top: 10%;"> 
-            <button fxFlex="30" style="border-radius: 20px;
-            border: solid 1px #D6D6D6;
-            background-color: #FFFFFF !important;color: #D6D6D6;" mat-raised-button (click)="cancel()">CANCEL</button>
+<div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="40px"  class="act-btn"> 
+            <button fxFlex="30" class="cancel-btn" mat-raised-button (click)="cancel()">CANCEL</button>
     
-            <button fxFlex="30" style="border-radius: 20px;
-            border: solid 1px #ED2024;
-                    color: #FFFFFF; " mat-raised-button color="warn" (click)="edit()">DONE</button>
+            <button fxFlex="30"class="add-btn" mat-raised-button color="warn" (click)="edit()">DONE</button>
     
 
 </div>                             
