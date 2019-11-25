@@ -18,20 +18,20 @@ export class DashboardComponent implements OnInit {
     lat: 12.99049,
     lng: 80.17648,
     label: 'Bay 1',
-    iconUrl: '/assets/dashboard/bay.svg'
+    iconUrl: 'assets/dashboard/bay.svg'
   },
   {
     lat: 12.99086,
     lng: 80.17708,
     label: 'Bay 2',
-    iconUrl: '/assets/dashboard/bay.svg'
+    iconUrl: 'assets/dashboard/bay.svg'
 
   },
   {
     lat: 12.99127,
     lng: 80.17756,
     label: 'Bay 3',
-    iconUrl: '/assets/dashboard/bay.svg'
+    iconUrl: 'assets/dashboard/bay.svg'
   }];
   assetMarkers: any = [];
   showEquip: boolean;
@@ -54,26 +54,26 @@ export class DashboardComponent implements OnInit {
       lat: 12.99599,
       lng: 80.16639,
       label: 'Bay 1',
-      iconUrl: '/assets/dashboard/bus.svg'
+      iconUrl: 'assets/dashboard/bus.svg'
     },
     {
       lat: 12.99816,
       lng: 80.16741,
       label: 'Bay 2',
-      iconUrl: '/assets/dashboard/baggage.svg'
+      iconUrl: 'assets/dashboard/baggage.svg'
 
     },
     {
       lat: 12.99746,
       lng: 80.16877,
       label: 'Bay 3',
-      iconUrl: '/assets/dashboard/catering.svg'
+      iconUrl: 'assets/dashboard/catering.svg'
     },
     {
       lat: 12.99646,
       lng: 80.16477,
       label: 'Bay 4',
-      iconUrl: '/assets/dashboard/stepladder.svg'
+      iconUrl: 'assets/dashboard/stepladder.svg'
     }];
   } 
 
@@ -85,18 +85,17 @@ export class DashboardComponent implements OnInit {
   clickedMarker(value, index) {
     this.assetMarkers = [];
     this.showEquip = true;
-    console.log(value, index)
     this.assetMarkers = [{
       lat: 12.99746,
       lng: 80.16877,
       label: 'Bay 3',
-      iconUrl: '/assets/dashboard/catering-icon.svg'
+      iconUrl: 'assets/dashboard/catering-icon.svg'
     },
     {
       lat: 12.99646,
       lng: 80.16477,
       label: 'Bay 4',
-      iconUrl: '/assets/dashboard/stepladder-icon.svg'
+      iconUrl: 'assets/dashboard/stepladder-icon.svg'
     }];
   }
 }

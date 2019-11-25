@@ -1,21 +1,21 @@
-<div class="login-wrapper" fxLayout="row" >  
-        <div fxFlex="50" class="login-bg" >  
-            <!-- <img  src="../../assets/login/login-bg.jpg"/> -->
+<div class="login-wrapper" fxLayout="row">
+    <div fxFlex="50" class="login-bg">
+        <!-- <img  src="../../assets/login/login-bg.jpg"/> -->
+    </div>
+    <div fxFlex="50" class="example-container">
+        <div class="logo">
+            <img fxFlex="50" src="assets/login/logo.svg" />
         </div>
-        <div fxFlex="50" class="example-container">
-                  <div class="logo">
-                      <img fxFlex="50" src="../../assets/login/logo.svg"/>
-                  </div>        
-                <mat-form-field class="user-info">
-                    <mat-label>Username</mat-label>
-                    <input matInput>
-                </mat-form-field>
-                <mat-form-field class="user-info" >
-                    <mat-label>Password</mat-label>
-                    <input matInput >
-                </mat-form-field>
-              <button mat-raised-button color="primary" class="login-btn" (click)="login()">Login</button>
-                  
-                
-        </div>
-  </div>
+        <mat-form-field class="user-info">
+            <mat-label>Username</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="user-info">
+            <mat-label>Password</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="login-btn" (click)="login()">Login</button>
+
+
+    </div>
+</div>

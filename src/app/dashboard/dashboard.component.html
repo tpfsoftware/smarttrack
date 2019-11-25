@@ -10,7 +10,7 @@
             </agm-info-window>
         </agm-marker>
 
-        <agm-marker *ngFor="let m of assetMarkers; let i = index" [animation]="DROP" [iconUrl]="m.iconUrl"
+        <agm-marker *ngFor="let m of assetMarkers; let i = index"  [iconUrl]="m.iconUrl"
             [latitude]="m.lat" [longitude]="m.lng" [markerDraggable]="false">
             <agm-info-window>
 
@@ -19,14 +19,14 @@
         </agm-marker>
     </agm-map>
     <div *ngIf="!showEquip" class="equip-details" fxLayout='row'>
-        <div><img src="/assets/dashboard/baggage.svg" class="fh-img" alt="Baggage" />Baggage Truck</div>
-        <div><img src="/assets/dashboard/catering.svg" class="fh-img" alt="Catering" />Catering</div>
-        <div><img src="/assets/dashboard/stepladder.svg" class="fh-img" alt="Step Ladder" />Step Ladder</div>
-        <div><img src="/assets/dashboard/bus.svg" class="fh-img" alt="Bus" />Bus</div>
+        <div><img src="assets/dashboard/baggage.svg" class="fh-img" alt="Baggage" />Baggage Truck</div>
+        <div><img src="assets/dashboard/catering.svg" class="fh-img" alt="Catering" />Catering</div>
+        <div><img src="assets/dashboard/stepladder.svg" class="fh-img" alt="Step Ladder" />Step Ladder</div>
+        <div><img src="assets/dashboard/bus.svg" class="fh-img" alt="Bus" />Bus</div>
     </div>
     <div class="flight-card" *ngIf="showEquip">
-        <div class="flight-title">
-            <div class="bay-no">BAY 21</div>
+        <div fxLayout="row" class="flight-title">
+            <div fxFlex="90" class="bay-no">BAY 21</div>
             <mat-icon class="close" (click)="closeModal()">close</mat-icon>
         </div>
         <mat-card class="flight-details">
@@ -49,11 +49,11 @@
                     </div>
                 </div>
                 <div class="equip-detail" fxLayout='row'>
-                    <div><img src="/assets/dashboard/baggage.svg" class="fh-img" alt="Baggage" />Baggage Truck</div>
-                    <div><img src="/assets/dashboard/catering.svg" class="fh-img" alt="Catering" />Catering</div>
-                    <div><img src="/assets/dashboard/stepladder.svg" class="fh-img" alt="Step Ladder" />Step Ladder
+                    <div><img src="assets/dashboard/baggage.svg" class="fh-img" alt="Baggage" />Baggage Truck</div>
+                    <div><img src="assets/dashboard/catering.svg" class="fh-img" alt="Catering" />Catering</div>
+                    <div><img src="assets/dashboard/stepladder.svg" class="fh-img" alt="Step Ladder" />Step Ladder
                     </div>
-                    <div><img src="/assets/dashboard/bus.svg" class="fh-img" alt="Bus" />Bus</div>
+                    <div><img src="assets/dashboard/bus.svg" class="fh-img" alt="Bus" />Bus</div>
                 </div>
             </div>
         </mat-card>

@@ -1,20 +1,29 @@
-.mat-tab-label-active{
-    background-color: white !important;
-    border-radius: 30px;
-    opacity: 1;
-    color: #00327C !important;
-    font-size: 110%;
-    font-weight: 700 !important;
+.mat-tab-label-active {
+  background-color: white !important;
+  border-radius: 30px;
+  opacity: 1;
+  color: #00327C !important;
+  font-size: 110%;
+  font-weight: 700 !important;
 }
-.mat-tab-header, .mat-tab-nav-bar{
-    border-bottom: none !important;
+
+.mat-tab-header,
+.mat-tab-nav-bar {
+  border-bottom: none !important;
 }
-.mat-tab-nav-bar.mat-primary .mat-ink-bar{
-    opacity:0 !important;
+
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  opacity: 0 !important;
 }
-.mat-tab-label, .mat-tab-link {
-    color:#689DEC ;
-    opacity:1 !important;
-    font-size: 110%;
-    font-weight: 700 !important;
+
+.mat-tab-label,
+.mat-tab-link {
+  color: #689DEC;
+  opacity: 1 !important;
+  font-size: 110%;
+  font-weight: 700 !important;
+}
+
+.top-rapid-logo {
+  margin: -14px 40px !important;
 }
