@@ -8,11 +8,14 @@
         </div>
         <mat-form-field class="user-info">
             <mat-label>Username</mat-label>
-            <input matInput>
+            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+           
         </mat-form-field>
         <mat-form-field class="user-info">
             <mat-label>Password</mat-label>
-            <input matInput>
+            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+
+           
         </mat-form-field>
         <button mat-raised-button color="primary" class="login-btn" (click)="login()">Login</button>
 
