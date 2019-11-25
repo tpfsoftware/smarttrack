@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
     console.log("inside login")
   }
   login(){
-    console.log("login")
-    if(this.username == 'admin' && this.password == '1234'){
+    console.log(this.username , this.password)
+    if(this.username == 'Admin' && this.password == '12345678'){
       this.router.navigate(["/layout"]);
      }else {
        alert("Authentication error");
