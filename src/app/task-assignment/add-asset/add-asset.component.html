@@ -1,10 +1,16 @@
 <div fxLayout="row">
-        <div fxFlex="75">
+        <div fxFlex="50">
             <h2>Add asset to</h2>
         </div>
-        <div fxFlex="25" >
-                <h2>Bay     21</h2>
-            </div>
+        <div fxFlex="50" class="bay-drop">
+                <div fxLayout="row" class="bay-margin">
+                        <div fxFlex="50" class="bay-label">BAY</div>
+                        <mat-select fxFlex="50">
+                          <mat-option *ngFor="let bayType of bayTypes" class="mat-normal-option">{{bayType}}
+                          </mat-option>
+                        </mat-select>
+                </div>
+        </div>     
 </div>
 <div fxLayout="row" class="truck">
     <h4>BAGGAGE TRUCK</h4>
