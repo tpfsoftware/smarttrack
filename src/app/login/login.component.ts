@@ -1,30 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl,FormGroup,Validator } from '@angular/forms'
-
-
+import { MatSnackBar,MatSnackBarConfig } from '@angular/material';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   username: string;
   password: string;
-
-  constructor(private router: Router) { }
+  message: string = 'Authentication error.';
+  actionButtonLabel: string = 'Retry';
+  action: boolean = true;
+  setAutoHide: boolean = true;
+  autoHide: number = 2000;
+  
+  constructor(private router: Router,private _snackBar: MatSnackBar) 
+  { }
 
   ngOnInit() {
     console.log("inside login")
   }
   login(){
-    console.log(this.username , this.password)
-    if(this.username == 'Admin' && this.password == '12345678'){
+    console.log("login")
+    let config = new MatSnackBarConfig();
+      config.duration = this.setAutoHide ? this.autoHide : 0;  
+     if(this.username == 'admin' && this.password == '1234'){
       this.router.navigate(["/layout"]);
+      console.log("successfully login")
      }else {
-       alert("Authentication error");
+      
+      this._snackBar.open(this.message, this.action ? this.actionButtonLabel : undefined, config);
+      console.log("error")
      }
- 
   }
 }
+
+
