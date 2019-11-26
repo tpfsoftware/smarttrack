@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MapStyleJson } from '../map-style';
+import { AppUrlServiceService } from '../app-url-service.service';
+import { AppServiceService } from '../app-service.service';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,35 +17,18 @@ export class DashboardComponent implements OnInit {
   lat: number = 12.991957;
   roadmap = 'roadmap';
   center = { lng: 80.1667154, lat: 12.991957 };
-  markers = [{
-    lat: 12.99049,
-    lng: 80.17648,
-    label: 'Bay 1',
-    iconUrl: 'assets/dashboard/bay.svg'
-  },
-  {
-    lat: 12.99086,
-    lng: 80.17708,
-    label: 'Bay 2',
-    iconUrl: 'assets/dashboard/bay.svg'
 
-  },
-  {
-    lat: 12.99127,
-    lng: 80.17756,
-    label: 'Bay 3',
-    iconUrl: 'assets/dashboard/bay.svg'
-  }];
   assetMarkers: any = [];
   showEquip: boolean;
-  
+  markers: any = [];
+  dupMarkers: any = [];
+  value: any;
 
 
-  constructor(private mapStyle: MapStyleJson) {
+
+  constructor(private mapStyle: MapStyleJson, private services: AppServiceService, private AppUrl: AppUrlServiceService) {
     this.mstyles = this.mapStyle.styles;
   }
-
-
 
 
   ngOnInit() {
@@ -50,32 +36,32 @@ export class DashboardComponent implements OnInit {
   }
 
   initMap() {
-    this.assetMarkers = [{
-      lat: 12.99599,
-      lng: 80.16639,
-      label: 'Bay 1',
-      iconUrl: 'assets/dashboard/bus.svg'
-    },
-    {
-      lat: 12.99816,
-      lng: 80.16741,
-      label: 'Bay 2',
-      iconUrl: 'assets/dashboard/baggage.svg'
+    console.log(this.services.getAll(this.AppUrl.geturlfunction('BAY_EQUIP_LIST')))
+    this.services.getAll(this.AppUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
+      var bays, assets;
+      if (res.status == true) {
+        var resTotal = res.data;
+        bays = resTotal.bay;
+        assets = resTotal.equipment;
 
-    },
-    {
-      lat: 12.99746,
-      lng: 80.16877,
-      label: 'Bay 3',
-      iconUrl: 'assets/dashboard/catering.svg'
-    },
-    {
-      lat: 12.99646,
-      lng: 80.16477,
-      label: 'Bay 4',
-      iconUrl: 'assets/dashboard/stepladder.svg'
-    }];
-  } 
+        for (let index = 0; index < bays.length; index++) {
+          const element = bays[index];
+          element.iconUrl = 'assets/dashboard/bay.svg';
+        }
+
+        for (let index = 0; index < assets.length; index++) {
+          const element = assets[index];
+          element.iconUrl = 'assets/dashboard/' + element.icon;
+        }
+
+        this.markers = bays;
+        this.assetMarkers = assets;
+        this.dupMarkers = assets;
+      }
+    })
+
+
+  }
 
   closeModal() {
     this.initMap();
@@ -83,19 +69,23 @@ export class DashboardComponent implements OnInit {
   }
 
   clickedMarker(value, index) {
-    this.assetMarkers = [];
-    this.showEquip = true;
-    this.assetMarkers = [{
-      lat: 12.99746,
-      lng: 80.16877,
-      label: 'Bay 3',
-      iconUrl: 'assets/dashboard/catering-icon.svg'
-    },
-    {
-      lat: 12.99646,
-      lng: 80.16477,
-      label: 'Bay 4',
-      iconUrl: 'assets/dashboard/stepladder-icon.svg'
-    }];
+    var selectedEquips = [];
+    var selectedBays= [];
+    selectedEquips = _.where(this.dupMarkers, { bay_id: value });
+    for (let index = 0; index < selectedEquips.length; index++) {
+      const element = selectedEquips[index];
+    }
+    selectedBays = _.where(this.markers, { name: value });
+    console.log(selectedEquips)
+    if (selectedEquips.length) {
+      this.showEquip = true;
+      this.assetMarkers = selectedEquips;
+      this.value = selectedBays[0];
+    }
+    else {
+      this.initMap();
+      this.showEquip = false;
+    }
+
   }
 }

@@ -22,6 +22,8 @@ import { MapStyleJson } from './map-style';
 import { RouterModule } from '@angular/router';
 import { AddAssetComponent } from './task-assignment/add-asset/add-asset.component';
 import { EditAssetComponent } from './task-assignment/edit-asset/edit-asset.component';
+import * as _ from 'underscore';
+import { HttpClientModule } from '@angular/common/http'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,7 @@ import { EditAssetComponent } from './task-assignment/edit-asset/edit-asset.comp
     MatMenuModule,
     MatIconModule,
     DemoMaterialModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBtQQhZG8m6EA5qNPeg3rGZflQNwuI_kag',
       libraries: ["places", "geometry"]

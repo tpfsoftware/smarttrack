@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +7,13 @@ import { Injectable } from '@angular/core';
 export class AppUrlServiceService {
 
   constructor() { }
+
+
+  geturlfunction(param) {
+    let obj: any =
+    {
+      BAY_EQUIP_LIST: environment.baseUrl + 'getMaster'
+    }
+    return obj[param];
+  }
 }
