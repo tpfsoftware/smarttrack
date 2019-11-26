@@ -22,7 +22,7 @@ import { MapStyleJson } from './map-style';
 import { RouterModule } from '@angular/router';
 import { AddAssetComponent } from './task-assignment/add-asset/add-asset.component';
 import { EditAssetComponent } from './task-assignment/edit-asset/edit-asset.component';
-import {AppUrlServiceService} from './app-url-service.service';
+import { HttpClientModule } from '@angular/common/http'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,13 +51,14 @@ import {AppUrlServiceService} from './app-url-service.service';
     MatMenuModule,
     MatIconModule,
     DemoMaterialModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBtQQhZG8m6EA5qNPeg3rGZflQNwuI_kag',
       libraries: ["places", "geometry"]
     }),
     RouterModule
   ],
-  providers: [AppServiceService,AppUrlServiceService,AppServiceService,MapStyleJson],
+  providers: [AppServiceService,AppServiceService,MapStyleJson],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

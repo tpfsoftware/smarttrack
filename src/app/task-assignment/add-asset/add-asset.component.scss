@@ -20,19 +20,17 @@ margin-top: 3%;
     border: solid 1px #ED2024;
     color: #FFFFFF; 
 }
-.bay-drop{
+
+.select-mat-op{
+    font-size: 19px;
+    font-weight: 800;
     border-radius: 9px;
     border: solid 1px #919191 !important;
-    height: 45px;
-    margin-top: 1%;
 }
-.bay-margin{
-    margin: 12px 0px 0px 10px;
+.mat-normal-option{
+    font-size: initial !important;
 }
-.bay-label{
-    color: #919191;
-    font-weight: 700;
-}
-.mat-select-arrow{
-    visibility: hidden;
+.mat-select-trigger{
+    margin-top: 6%;
+    margin-left: 30%;
 }

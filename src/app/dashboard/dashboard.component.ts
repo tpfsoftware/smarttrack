@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MapStyleJson } from '../map-style';
+import { AppUrlServiceService } from '../app-url-service.service';
+import { AppServiceService } from '../app-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -35,21 +37,24 @@ export class DashboardComponent implements OnInit {
   }];
   assetMarkers: any = [];
   showEquip: boolean;
-  
 
 
-  constructor(private mapStyle: MapStyleJson) {
+
+  constructor(private mapStyle: MapStyleJson, private services: AppServiceService, private AppUrl: AppUrlServiceService) {
     this.mstyles = this.mapStyle.styles;
   }
-
-
 
 
   ngOnInit() {
     this.initMap();
   }
 
-  initMap() {
+  initMap() { 
+    console.log(this.services.getAll(this.AppUrl.geturlfunction('BAY_EQUIP_LIST')))
+    this.services.getAll(this.AppUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
+      console.log(res)
+    })
+
     this.assetMarkers = [{
       lat: 12.99599,
       lng: 80.16639,
@@ -75,7 +80,7 @@ export class DashboardComponent implements OnInit {
       label: 'Bay 4',
       iconUrl: 'assets/dashboard/stepladder.svg'
     }];
-  } 
+  }
 
   closeModal() {
     this.initMap();

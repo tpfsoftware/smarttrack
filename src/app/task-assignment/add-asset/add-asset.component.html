@@ -2,15 +2,12 @@
         <div fxFlex="50">
             <h2>Add asset to</h2>
         </div>
-        <div fxFlex="50" class="bay-drop">
-                <div fxLayout="row" class="bay-margin">
-                        <div class="bay-label">BAY</div>
-                        <mat-select name="bays" [(ngModel)]="bayType" #bays="ngModel">
-                          <mat-option [value]="bayType.id" *ngFor="let bayType of bayTypes" class="mat-normal-option">{{bayType}}
+        <!-- <div  class="bay-drop"> -->
+                        <mat-select fxFlex="50" class="select-mat-op">
+                          <mat-option [value]="bayType._id" *ngFor="let bayType of bayTypes" class="mat-normal-option">{{bayType.name}}
                           </mat-option>
                         </mat-select>
-                </div>
-        </div>     
+        <!-- </div>      -->
 </div>
 <div fxLayout="row" class="truck">
     <h4>BAGGAGE TRUCK</h4>
@@ -28,8 +25,7 @@
         <h4>Step Ladder</h4> 
 </div> 
 <div fxLayout="row" fxLayoutGap="20px">
-                    <h5 *ngFor="let lad of ladder" class="equip ladder" fxFlex="25">{{lad}}</h5>
-                    <h5 class="equip" fxFlex="25">ST102</h5>                              
+                    <h5 *ngFor="let lad of ladder" class="equip ladder" fxFlex="25">{{lad}}</h5>                        
 </div>
 <div fxLayout="row">
         <h4>Bus</h4> 

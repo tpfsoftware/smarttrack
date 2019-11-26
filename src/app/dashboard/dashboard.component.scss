@@ -132,3 +132,12 @@ agm-map {
 .left {
   text-align: left;
 }
+
+.mat-divider {
+  display: block;
+  width: 100%;
+  margin: 12px 0px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  position: relative!important;
+}

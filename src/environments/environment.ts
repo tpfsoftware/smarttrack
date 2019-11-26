@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  dev: false,
-  baseurl:"https://smarttrackbackend.herokuapp.com/",
+  baseUrl:"https://smarttrackbackend.herokuapp.com/"
 };
 
 /*
