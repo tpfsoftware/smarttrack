@@ -5,12 +5,12 @@ import {DemoMaterialModule} from './master/master.module';
 import {AppServiceService} from './app-service.service'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TaskAssignmentComponent } from './task-assignment/task-assignment.component';
 import { InsightsComponent } from './insights/insights.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatTabsModule} from '@angular/material/tabs';
 import { LoginComponent } from './login/login.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +32,6 @@ import { EditAssetComponent } from './task-assignment/edit-asset/edit-asset.comp
     LayoutComponent,
     AddAssetComponent,
     EditAssetComponent,
-   
   ], 
   entryComponents: [
     AddAssetComponent,
@@ -45,7 +44,8 @@ import { EditAssetComponent } from './task-assignment/edit-asset/edit-asset.comp
     MatToolbarModule,
     MatTabsModule,
     FlexLayoutModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule, 
+    ReactiveFormsModule,
     MatNativeDateModule,
     MatMenuModule,
     MatIconModule,
