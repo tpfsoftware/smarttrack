@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
   initMap() {
     console.log(this.services.getAll(this.AppUrl.geturlfunction('BAY_EQUIP_LIST')))
     this.services.getAll(this.AppUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
-      var bays, assets;
+      var bays=[], assets=[];
       if (res.status == true) {
         var resTotal = res.data;
         bays = resTotal.bay;
@@ -46,12 +46,12 @@ export class DashboardComponent implements OnInit {
 
         for (let index = 0; index < bays.length; index++) {
           const element = bays[index];
-          element.iconUrl = 'assets/dashboard/bay.svg';
+          element.icons = { url: 'assets/dashboard/bay.svg', scaledSize: {height: 25, width: 25}}
         }
 
         for (let index = 0; index < assets.length; index++) {
           const element = assets[index];
-          element.iconUrl = 'assets/dashboard/' + element.icon;
+          element.icons = { url: 'assets/dashboard/' + element.icon +'.svg', scaledSize: {height: 15, width: 15}}
         }
 
         this.markers = bays;
@@ -74,9 +74,9 @@ export class DashboardComponent implements OnInit {
     selectedEquips = _.where(this.dupMarkers, { bay_id: value });
     for (let index = 0; index < selectedEquips.length; index++) {
       const element = selectedEquips[index];
+      element.icons = { url: 'assets/dashboard/' + element.icon +'-icon.svg', scaledSize: {height: 30, width: 30}}
     }
     selectedBays = _.where(this.markers, { name: value });
-    console.log(selectedEquips)
     if (selectedEquips.length) {
       this.showEquip = true;
       this.assetMarkers = selectedEquips;

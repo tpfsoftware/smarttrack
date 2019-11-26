@@ -3,19 +3,15 @@
         [streetViewControl]="false" [disableDefaultUI]="false" [zoomControl]="false">
 
         <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.name, i)"
-            [latitude]="m.lat" [longitude]="m.lng" [iconUrl]="m.iconUrl"
+            [latitude]="m.lat" [longitude]="m.lng" [iconUrl]="m.icons"
             [label]="{color: '#000000',fontWeight: 'bold',fontSize:'2',text:m.name}" [markerDraggable]="false">
             <agm-info-window #infoWindow>
                 <strong>{{m.name}}</strong>
             </agm-info-window>
         </agm-marker>
 
-        <agm-marker *ngFor="let m of assetMarkers; let i = index"  [iconUrl]="m.iconUrl"
+        <agm-marker *ngFor="let m of assetMarkers; let i = index"  [iconUrl]="m.icons"
             [latitude]="m.lat" [longitude]="m.lng" [markerDraggable]="false">
-            <agm-info-window>
-
-                <strong>{{m.label}}</strong>
-            </agm-info-window>
         </agm-marker>
     </agm-map>
     <div *ngIf="!showEquip" class="equip-details" fxLayout='row'>
