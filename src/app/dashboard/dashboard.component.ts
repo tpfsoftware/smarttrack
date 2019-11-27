@@ -32,13 +32,18 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
-    this.initMap();
+    this.initMap('init');
+    // setInterval(function () {
+    //   this.initMap('refresh');
+    // }, 5000);
   }
 
-  initMap() {
-    console.log(this.services.getAll(this.AppUrl.geturlfunction('BAY_EQUIP_LIST')))
+
+
+
+  initMap(value) {
     this.services.getAll(this.AppUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
-      var bays=[], assets=[];
+      var bays = [], assets = [];
       if (res.status == true) {
         var resTotal = res.data;
         bays = resTotal.bay;
@@ -46,35 +51,42 @@ export class DashboardComponent implements OnInit {
 
         for (let index = 0; index < bays.length; index++) {
           const element = bays[index];
-          element.icons = { url: 'assets/dashboard/bay.svg', scaledSize: {height: 25, width: 25}}
+          element.icons = { url: 'assets/dashboard/bay.svg', scaledSize: { height: 25, width: 25 } }
         }
 
         for (let index = 0; index < assets.length; index++) {
           const element = assets[index];
-          element.icons = { url: 'assets/dashboard/' + element.icon +'.svg', scaledSize: {height: 15, width: 15}}
+          element.icons = { url: 'assets/dashboard/' + element.icon + '.svg', scaledSize: { height: 15, width: 15 } }
         }
 
-        this.markers = bays;
-        this.assetMarkers = assets;
-        this.dupMarkers = assets;
+        if (value == 'init') {
+          this.markers = bays;
+          this.assetMarkers = assets;
+          this.dupMarkers = assets;
+        }
+        else {
+          this.assetMarkers = assets;
+          this.dupMarkers = assets;
+        }
+
       }
     })
-
-
   }
 
+
+
   closeModal() {
-    this.initMap();
+    this.initMap('init');
     this.showEquip = false;
   }
 
   clickedMarker(value, index) {
     var selectedEquips = [];
-    var selectedBays= [];
+    var selectedBays = [];
     selectedEquips = _.where(this.dupMarkers, { bay_id: value });
     for (let index = 0; index < selectedEquips.length; index++) {
       const element = selectedEquips[index];
-      element.icons = { url: 'assets/dashboard/' + element.icon +'-icon.svg', scaledSize: {height: 30, width: 30}}
+      element.icons = { url: 'assets/dashboard/' + element.icon + '-icon.svg', scaledSize: { height: 30, width: 30 } }
     }
     selectedBays = _.where(this.markers, { name: value });
     if (selectedEquips.length) {
@@ -83,7 +95,7 @@ export class DashboardComponent implements OnInit {
       this.value = selectedBays[0];
     }
     else {
-      this.initMap();
+      this.initMap('init');
       this.showEquip = false;
     }
 

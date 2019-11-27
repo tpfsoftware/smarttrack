@@ -1,7 +1,7 @@
 <div class="insights-area" fxLayout="row">
     <div class="top-content" fxFlex="30">
         <div class="top-title">
-            LAST 7 DAYS
+            TODAY
         </div>
         <div class="top-sub">
             TOTAL ASSETS
@@ -36,8 +36,19 @@
     </div>
     <div fxFlex="70">
         <div fxLayout="row wrap">
-            <div>
-
+            <div class="insight-card" fxFlex="100">
+                <canvas baseChart [datasets]="lineChartData" [labels]="lineChartsLabels" [legend]="lineChartLegend"
+                    [options]="departmentChartOptions" [colors]="lineChartColors"
+                    [chartType]="lineChartType">
+                </canvas>
+            </div>
+            <div class="insight-card" fxFlex="100">
+                <div class="usage-title">USAGE BY EQUIPMENT</div>
+                <div class="equip-list" *ngFor="let v of equipUsage" fxLayout="row">
+                    <img fxFlex="20" [src]="v.icon" />
+                    <progress-bar class="equips" fxFlex="80" [progress]="v.value" [color]="'#4285F4'">
+                    </progress-bar>
+                </div>
             </div>
         </div>
     </div>
