@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl:"https://smarttrackbackend.herokuapp.com/",
-  // devUrl:"http:localhost:3010/"
+  base:"https://demo7027790.mockable.io/"
 };
 
 /*

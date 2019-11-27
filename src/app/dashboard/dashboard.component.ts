@@ -56,7 +56,7 @@ export class DashboardComponent implements OnInit {
 
         for (let index = 0; index < assets.length; index++) {
           const element = assets[index];
-          element.icons = { url: 'assets/dashboard/' + element.icon + '.svg', scaledSize: { height: 15, width: 15 } }
+          element.icons = { url: 'assets/dashboard/' + element.icon + '.svg', scaledSize: { height: 20, width: 20 } }
         }
 
         if (value == 'init') {

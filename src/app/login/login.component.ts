@@ -27,7 +27,7 @@ export class LoginComponent {
     console.log("login")
     let config = new MatSnackBarConfig();
       config.duration = this.setAutoHide ? this.autoHide : 0;  
-     if(this.username == 'admin' && this.password == '1234'){
+     if(this.username == 'Admin' && this.password == '12345678'){
       this.router.navigate(["/layout"]);
       console.log("successfully login")
      }else {
