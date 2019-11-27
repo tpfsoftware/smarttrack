@@ -104,18 +104,19 @@ console.log(this.equip)
     this.dialogRef.close();
   }
   done(){
-  //    this.dialogRef.close('RELOAD');
-  // console.log(this.mode);
-  // console.log(this.bayName);
-  // console.log(this.equip)
-  // let equip_update:any={"name":'',"bay_id":''};
-  // console.log(equip_update)
-  // equip_update.name=this.equip;
-  // equip_update.bay_id=this.bayName;
-  // console.log(equip_update)
-  // this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
-  //   console.log(res)
-  // })  // this.dialogRef.close();
+     this.dialogRef.close('RELOAD');
+  console.log(this.mode);
+  console.log(this.editRow.bay_id);
+  console.log(this.equip)
+  let equip_update:any={"name":'',"bay_id":''};
+  console.log(equip_update)
+  equip_update.name=this.equip;
+  equip_update.bay_id=this.editRow.bay_id;
+  console.log(equip_update)
+  this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
+    console.log(res)
+  })
+    // this.dialogRef.close();
   }
 
 }
