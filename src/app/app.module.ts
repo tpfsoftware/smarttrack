@@ -59,7 +59,7 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     RouterModule
   ],
-  providers: [AppServiceService,MapStyleJson],
+  providers: [AppServiceService,AppServiceService,MapStyleJson],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

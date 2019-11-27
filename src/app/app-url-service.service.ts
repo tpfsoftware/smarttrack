@@ -15,6 +15,7 @@ export class AppUrlServiceService {
       BAY_EQUIP_LIST: environment.baseUrl + 'getMaster',
       INSIGHTS:   environment.baseUrl + 'getInsights'
     }
+    console.log(param)
     return obj[param];
   }
 }

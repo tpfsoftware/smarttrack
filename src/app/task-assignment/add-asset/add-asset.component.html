@@ -1,40 +1,37 @@
 <div fxLayout="row">
-        <div fxFlex="75">
+        <div fxFlex="50">
             <h2>Add asset to</h2>
         </div>
-        <div fxFlex="25" >
-                <h2>Bay     21</h2>
-            </div>
+        <!-- <div  class="bay-drop"> -->
+                        <mat-select fxFlex="50" class="select-mat-op">
+                          <mat-option [value]="bayType._id" *ngFor="let bayType of bayTypes" class="mat-normal-option">{{bayType.name}}
+                          </mat-option>
+                        </mat-select>
+        <!-- </div>      -->
 </div>
 <div fxLayout="row" class="truck">
     <h4>BAGGAGE TRUCK</h4>
 </div>
 <div fxLayout="row" fxLayoutGap="20px">
-        <h5 fxFlex="20" class="equip" fxFlex="25">BT101</h5>
-        <h5 fxFlex="20" class="equip" fxFlex="25">BT102</h5> 
-        <h5 fxFlex="20" class="equip" fxFlex="25">BT101</h5>
-        <h5 fxFlex="20" class="equip" fxFlex="25">BT102</h5>
+        <h5 *ngFor="let bag of baggage" fxFlex="20" class="equip" fxFlex="25">{{bag}}</h5>
 </div>
 <div fxLayout="row">
         <h4>Catering</h4> 
 </div> 
 <div fxLayout="row" fxLayoutGap="20px">
-                <h5 fxFlex="20" class="equip" class="catering" fxFlex="25">CT101</h5>
-                <h5 fxFlex="20" class="equip" fxFlex="25">CT102</h5> 
-                <h5 fxFlex="20" class="equip" fxFlex="25">CT103</h5>                              
+                <h5 *ngFor="let cater of catering" fxFlex="20" class="equip catering" fxFlex="25">{{cater}}</h5>                           
     </div>                    
 <div fxLayout="row">
         <h4>Step Ladder</h4> 
 </div> 
 <div fxLayout="row" fxLayoutGap="20px">
-                    <h5 class="equip"  class="ladder" fxFlex="25">ST101</h5>
-                    <h5 class="equip" fxFlex="25">ST102</h5>                              
+                    <h5 *ngFor="let lad of ladder" class="equip ladder" fxFlex="25">{{lad}}</h5>                        
 </div>
 <div fxLayout="row">
         <h4>Bus</h4> 
 </div>
 <div fxLayout="row" fxLayoutGap="20px">
-                <h5 class="equip"  style="background-color:#B6B6B6" fxFlex="25">BU101</h5>
+                <h5 *ngFor="let bus of buses" class="equip"  style="background-color:#B6B6B6" fxFlex="25">{{bus}}</h5>
 </div>  
 <div fxLayout="row" class="act-btn" fxLayoutAlign="center" fxLayoutGap="40px"> 
             <button fxFlex="30" class="cancel-btn" mat-raised-button (click)="cancel()">CANCEL</button>
