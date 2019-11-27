@@ -33,10 +33,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.initMap('init');
-    // setInterval(function () {
-    //   this.initMap('refresh');
-    // }, 5000);
+    setInterval(() => {
+      this.initMap('refresh');
+    }, 5000);
   }
+
+
 
 
 
@@ -64,7 +66,7 @@ export class DashboardComponent implements OnInit {
           this.assetMarkers = assets;
           this.dupMarkers = assets;
         }
-        else {
+        else if(value == 'refresh' && this.showEquip == false){
           this.assetMarkers = assets;
           this.dupMarkers = assets;
         }
@@ -79,6 +81,7 @@ export class DashboardComponent implements OnInit {
     this.initMap('init');
     this.showEquip = false;
   }
+  
 
   clickedMarker(value, index) {
     var selectedEquips = [];
