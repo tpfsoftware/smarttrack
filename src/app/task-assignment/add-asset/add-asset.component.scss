@@ -1,12 +1,79 @@
 .truck{
 margin-top: 3%;
 }
-.catering{
-    background-color:#B2B7FF;
+.bag_equip{
+    background-color: #FF5C5C;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0%;
+    border:none;
+    color:#FFFFFF;
+    outline: none !important;
 }
-.ladder{
-    background-color:#95E48D
+.bag_default{
+    background-color: #FFBBB9;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0%;
+    border:none; 
 }
+.cat_equip{
+    background-color: #000C98;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0%;
+    border:none;
+    color:#FFFFFF;
+    outline: none !important;
+}
+.cat_default{
+    background-color: #B2B7FF;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0%;
+    border:none; 
+}
+.lad_equip{
+    background-color: #01C122;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0%;
+    border:none;
+    color:#FFFFFF;
+    outline: none !important;
+}
+.lad_default{
+    background-color: #95E48D;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0%;
+    border:none; 
+}
+.bus_equip{
+    background-color: #171717;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0%;
+    border:none;
+    color:#FFFFFF;
+    outline: none !important;
+}
+.bus_default{
+    background-color: #B6B6B6;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0%;
+    border:none; 
+}
+
 .act-btn{
     margin-top: 10%;
 }

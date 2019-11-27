@@ -16,6 +16,16 @@ export class AddAssetComponent implements OnInit {
   ladder:any=[];
   buses:any=[]
   mode:any;
+  bays:string;
+  bayName:any;
+  load:any;
+  truck:any;
+  equip:any;
+  bagSel:boolean=false;
+  catSel:boolean=false;
+  ladSel:boolean=false;
+  busSel:boolean=false;
+
   constructor( private dialogRef: MatDialogRef<AddAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
     console.log(details)
     this.mode=this.details.mode;
@@ -66,18 +76,50 @@ if(cat!=undefined){
       }
     })
   }
+  bagSelect(e:any){
+    this.bagSel=true;
+console.log(e,"event")
+this.equip=e;
+console.log(this.equip)
+  }
+  catSelect(e:any){
+    this.catSel=true;
+console.log(e,"event")
+this.equip=e;
+console.log(this.equip)
+  }
+  ladSelect(e:any){
+    this.ladSel=true;
+console.log(e,"event")
+this.equip=e;
+console.log(this.equip)
+  }
+  busSelect(e:any){
+    this.busSel=true;
+console.log(e,"event")
+this.equip=e;
+console.log(this.equip)
+  }
   cancel(){
     this.dialogRef.close();
   }
+  modList(data:any){
+console.log(data)
+this.bayName=data
+  }
   add(){
+    this.dialogRef.close('RELOAD');
     console.log(this.mode);
-    // if(this.mode=="ADD"){
-      console.log(this.details)
-    // }
-    // this.dialogRef.close();
+    console.log(this.bayName);
+    console.log(this.equip)
+    let equip_update:any={"name":'',"bay_id":''};
+    console.log(equip_update)
+    equip_update.name=this.equip;
+    equip_update.bay_id=this.bayName;
+    console.log(equip_update)
+    this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
+      console.log(res)
+    })
   }
-  click(){
-    console.log("yes")
-  }
-
+  
 }

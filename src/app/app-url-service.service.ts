@@ -13,7 +13,8 @@ export class AppUrlServiceService {
     let obj: any =
     {
       BAY_EQUIP_LIST: environment.baseUrl + 'getMaster',
-      INSIGHTS:    environment.baseUrl  + 'getInsights'
+      INSIGHTS:    environment.baseUrl  + 'getInsights',
+      BAY_EQUIP_UPDATE:environment.baseUrl + 'update',
     }
     return obj[param];
   }
