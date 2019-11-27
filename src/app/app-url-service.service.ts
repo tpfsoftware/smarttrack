@@ -12,7 +12,8 @@ export class AppUrlServiceService {
   geturlfunction(param) {
     let obj: any =
     {
-      BAY_EQUIP_LIST: environment.baseUrl + 'getMaster'
+      BAY_EQUIP_LIST: environment.baseUrl + 'getMaster',
+      BAY_EQUIP_UPDATE:environment.baseUrl + 'update',
     }
     console.log(param)
     return obj[param];
