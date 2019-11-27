@@ -41,6 +41,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ChartsModule } from 'ng2-charts';
+import {ProgressBarModule} from "angular-progress-bar"
 @NgModule({
   exports: [
     A11yModule,
@@ -59,6 +61,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatStepperModule,
     MatDatepickerModule,
     MatDialogModule,
+    ProgressBarModule,
     MatDividerModule,
     MatExpansionModule,
     MatGridListModule,
@@ -85,7 +88,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ChartsModule
   ]
 })
 export class DemoMaterialModule {}
