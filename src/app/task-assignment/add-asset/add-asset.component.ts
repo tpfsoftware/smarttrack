@@ -43,7 +43,7 @@ export class AddAssetComponent implements OnInit {
         let list=[]
         list=res.data.equipment
         console.log(list)
-       let final_list=[]
+       let final_list:any;
        let listAll=[];
       
         final_list=_.each(list,function(obj){

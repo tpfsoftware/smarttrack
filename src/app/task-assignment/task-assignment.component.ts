@@ -32,7 +32,7 @@ export class TaskAssignmentComponent implements OnInit {
         let list=[]
         list=res.data.equipment;
         console.log(list)
-       let final_list=[];  
+       let final_list:any;  
        let filtered: any[] = [];
         final_list=_.each(list,function(obj){
           if(obj.bay_id!=null){
@@ -81,8 +81,9 @@ export class TaskAssignmentComponent implements OnInit {
       }
     })
   }
-  edit(){
+  edit(datas:any){
     console.log("clicked");
+    console.log(datas)
     const modalRef = this.dialog.open(EditAssetComponent, {
       position: {
           right: '0',
@@ -90,9 +91,10 @@ export class TaskAssignmentComponent implements OnInit {
       // minHeight: '96vh',
       width: '400px',
       maxHeight: '100vh',
-      panelClass: 'addNewflight',
+      panelClass: 'editFlight',
       data: {
-          mode: 'ADD',
+          mode: 'EDIT',
+          bayDet:datas
       },
 
   });

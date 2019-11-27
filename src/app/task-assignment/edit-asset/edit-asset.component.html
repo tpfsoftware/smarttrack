@@ -1,48 +1,45 @@
-<div fxLayout="row">
-        <div fxFlex="75">
+<div fxLayout="row" fxLayoutGap="30px">
+        <div fxFlex="40">
             <h2>Edit asset to</h2>
         </div>
-        <div fxFlex="25" >
-                <h2>Bay     21</h2>
-            </div>
+        <div class="bays" fxFlex="30">
+        {{editRow.bay_id}}
+        </div>
 </div>
 <div fxLayout="row" class="truck">
     <h4>BAGGAGE TRUCK</h4>
 </div>
 <div fxLayout="row" fxLayoutGap="20px">
-        <h5 fxFlex="20" class="equip" style="background-color: #FF5C5C !important;color:#FFFFFF" fxFlex="25">BT101</h5>
-        <h5 fxFlex="20" class="equip" fxFlex="25">BT102</h5> 
-        <h5 fxFlex="20" class="equip" fxFlex="25">BT101</h5>
-        <h5 fxFlex="20" class="equip" fxFlex="25">BT102</h5>
+        <button *ngIf="editRow.name=='Baggage'" Class="bag_equip" fxFlex="25" >{{editRow.name}}</button>
+        <button [ngClass]="{'bag_equip': bagSel, 'bag_default': !bagSel}" *ngFor="let bag of baggage" fxFlex="25" (click)="bagSelect(bag);">{{bag}}</button>
 </div>
 <div fxLayout="row">
         <h4>Catering</h4> 
 </div> 
 <div fxLayout="row" fxLayoutGap="20px">
-                <h5 fxFlex="20" class="equip" style="background-color:#000C98;color:#FFFFFF" fxFlex="25">CT101</h5>
-                <h5 fxFlex="20" class="equip" style="background-color:#B2B7FF" fxFlex="25">CT102</h5> 
-                <h5 fxFlex="20" class="equip" style="background-color:#B2B7FF" fxFlex="25">CT103</h5>                              
+                <button *ngIf="editRow.name=='Catering'" Class="cat_equip" fxFlex="25" >{{editRow.name}}</button>
+                
+        <button [ngClass]="{'cat_equip': catSel, 'cat_default': !catSel}" *ngFor="let cater of catering" fxFlex="25" (click)="catSelect(cater);">{{cater}}</button>                           
     </div>                    
 <div fxLayout="row">
         <h4>Step Ladder</h4> 
 </div> 
 <div fxLayout="row" fxLayoutGap="20px">
-                    <h5 class="equip"  style="background-color:#01C122;color:#FFFFFF" fxFlex="25">ST101</h5>
-                    <h5 class="equip"  style="background-color:#95E48D" fxFlex="25">ST102</h5>                              
+                <button *ngIf="editRow.name=='Step Ladder'" Class="lad_equip" fxFlex="25" >{{editRow.name}}</button>
+        <button [ngClass]="{'lad_equip': ladSel, 'lad_default': !ladSel}" *ngFor="let lad of ladder" fxFlex="25" (click)="ladSelect(lad);">{{lad}}</button>                        
 </div>
 <div fxLayout="row">
         <h4>Bus</h4> 
 </div>
 <div fxLayout="row" fxLayoutGap="20px">
-                <h5 class="equip"  style="background-color:#171717;color:#FFFFFF" fxFlex="25">BU101</h5>
-                <h5 class="equip"  style="background-color:#171717;color:#FFFFFF" fxFlex="25">BU102</h5>
-                <h5 class="equip"  style="background-color:#B6B6B6" fxFlex="25">BU103</h5>
+                <button *ngIf="editRow.name=='Bus'" Class="bus_equip" fxFlex="25" >{{editRow.name}}</button>
+        <button [ngClass]="{'bus_equip': busSel, 'bus_default': !busSel}" *ngFor="let bus of buses" fxFlex="25" (click)="busSelect(bus);">{{bus}}</button>
 </div>  
-<div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="40px"  class="act-btn"> 
+<div fxLayout="row" class="act-btn" fxLayoutAlign="center" fxLayoutGap="40px"> 
             <button fxFlex="30" class="cancel-btn" mat-raised-button (click)="cancel()">CANCEL</button>
     
-            <button fxFlex="30"class="add-btn" mat-raised-button color="warn" (click)="edit()">DONE</button>
+            <button fxFlex="30" class="add-btn" mat-raised-button color="warn" (click)="done()">Done</button>
     
 
-</div>                             
+</div>                         
   
