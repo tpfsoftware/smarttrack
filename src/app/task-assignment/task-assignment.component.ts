@@ -55,7 +55,6 @@ export class TaskAssignmentComponent implements OnInit {
             }
           }
         }
-        console.log(filtered)
         this.fullList=filtered;
 
 //        let truck_bag= _.findWhere(listAll, (({name: "Baggage"})?({name: "Baggage"}):[]));
@@ -88,7 +87,7 @@ export class TaskAssignmentComponent implements OnInit {
       position: {
           right: '0',
       },
-      // minHeight: '96vh',
+      minHeight: '60vh',
       width: '400px',
       maxHeight: '100vh',
       panelClass: 'editFlight',
@@ -108,7 +107,7 @@ export class TaskAssignmentComponent implements OnInit {
       position: {
           right: '0',
       },
-      // minHeight: '96vh',
+      minHeight: '60vh',
       width: '400px',
       maxHeight: '100vh',
       panelClass: 'addNewflight',

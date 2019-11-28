@@ -10,7 +10,8 @@
 <div fxLayout="row wrap">
         <div class="bay-title" *ngFor="let list of fullList" fxFlex="40">
                 <div class="bay-info">
-                        <div style="background-color: rgb(0, 50, 124);border-top-left-radius: 12px;border-top-right-radius: 12px;">
+                        <div
+                                style="background-color: rgb(0, 50, 124);border-top-left-radius: 12px;border-top-right-radius: 12px;">
                                 <div fxLayout="row">
                                         <h4 style="margin-left: 4%;" fxFlex="90">{{list.bay_id}}</h4>
                                         <h4 style="margin-right: 3%;color:#AEE1FF !important;font-size: 69%" fxFlex="10"
@@ -62,7 +63,7 @@
                                                                 <h5 *ngIf="list.name=='Step Ladder'" class="equip"
                                                                         style="background-color:#95E48D" fxFlex="50">
                                                                         {{list.name}}</h5>
-                                                                       
+
                                                         </div>
                                                 </div>
                                         </div>
@@ -80,13 +81,14 @@
                         </mat-card>
                 </div>
         </div>
-        <div style="position: absolute;
+</div>
+<div style="position: absolute;
         bottom: 2%;
         right: 2%;
         z-index: 100;">
-                        <button style="border-radius: 20px;
+        <button style="border-radius: 20px;
                             border: solid 1px #ED2024;
-                                    color: #FFFFFF; font-size: 173%; " mat-raised-button color="warn" (click)="add()">+</button>
-                
-                </div>
+                                    color: #FFFFFF; font-size: 173%; " mat-raised-button color="warn"
+                (click)="add()">+</button>
+
 </div>
