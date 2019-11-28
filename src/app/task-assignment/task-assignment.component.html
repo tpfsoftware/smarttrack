@@ -23,12 +23,12 @@
                         <mat-card class="asset-title">
                                 <mat-card-title class="bay-det" fxLayout="row">
                                         <div fxFlex="85">
-                                                <h5>{{list.org}}</h5>
-                                                <h5>{{list.a_flt}}</h5>
+                                                <h5>{{list.origin}}</h5>
+                                                <h5>{{list.arrival_flight_no}}</h5>
                                         </div>
                                         <div fxFlex="15">
-                                                <h5>{{list.des}}</h5>
-                                                <h5>{{list.d_flt}}</h5>
+                                                <h5>{{list.destination}}</h5>
+                                                <h5>{{list.departure_flight_no}}</h5>
                                         </div>
                                 </mat-card-title>
                                 <div class="car-border"></div>
@@ -36,9 +36,9 @@
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Baggage Truck</h5>
                                                 <div fxFlex="80">
-                                                        <div fxLayout="row" fxLayoutGap="5px">
-                                                                <h5 class="equip" *ngIf="list.name=='Baggage'"
-                                                                        fxFlex="25">
+                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20x">
+                                                                <h5 class="equip" *ngIf="equip=='Baggage'"
+                                                                        fxFlex="50">
                                                                         {{list.name}}</h5>
 
                                                         </div>
@@ -47,9 +47,9 @@
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Catering</h5>
                                                 <div fxFlex="80">
-                                                        <div fxLayout="row" fxLayoutGap="5px">
-                                                                <h5 class="equip" *ngIf="list.name=='Catering'"
-                                                                        style="background-color:#B2B7FF" fxFlex="25">
+                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20px">
+                                                                <h5 class="equip" *ngIf="equip=='Catering'"
+                                                                        style="background-color:#B2B7FF" fxFlex="50">
                                                                         {{list.name}}</h5>
 
                                                         </div>
@@ -58,8 +58,8 @@
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Step Ladder</h5>
                                                 <div fxFlex="80">
-                                                        <div fxLayout="row" fxLayoutGap="20px">
-                                                                <h5 *ngIf="list.name=='Step Ladder'" class="equip"
+                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20px">
+                                                                <h5 *ngIf="equip=='Step Ladder'" class="equip"
                                                                         style="background-color:#95E48D" fxFlex="50">
                                                                         {{list.name}}</h5>
                                                                        
@@ -69,9 +69,9 @@
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Bus</h5>
                                                 <div fxFlex="80">
-                                                        <div fxLayout="row" fxLayoutGap="5px">
-                                                                <h5 class="equip" *ngIf="list.name=='Bus'"
-                                                                        style="background-color:#B6B6B6" fxFlex="25">
+                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20px">
+                                                                <h5 class="equip" *ngIf="equip=='Bus'"
+                                                                        style="background-color:#B6B6B6" fxFlex="50">
                                                                         {{list.name}}</h5>
                                                         </div>
                                                 </div>
@@ -80,8 +80,10 @@
                         </mat-card>
                 </div>
         </div>
-        <div style="margin-top: 29%;
-        margin-left: 47%;">
+        <div style="position: absolute;
+        bottom: 2%;
+        right: 2%;
+        z-index: 100;">
                         <button style="border-radius: 20px;
                             border: solid 1px #ED2024;
                                     color: #FFFFFF; font-size: 173%; " mat-raised-button color="warn" (click)="add()">+</button>

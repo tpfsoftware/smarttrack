@@ -21,19 +21,16 @@ export class LoginComponent {
   { }
 
   ngOnInit() {
-    console.log("inside login")
   }
   login(){
-    console.log("login")
     let config = new MatSnackBarConfig();
       config.duration = this.setAutoHide ? this.autoHide : 0;  
      if(this.username == 'Admin' && this.password == '12345678'){
       this.router.navigate(["/layout"]);
-      console.log("successfully login")
      }else {
       
       this._snackBar.open(this.message, this.action ? this.actionButtonLabel : undefined, config);
-      console.log("error")
+
      }
   }
 }

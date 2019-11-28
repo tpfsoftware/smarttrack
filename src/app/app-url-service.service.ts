@@ -15,6 +15,7 @@ export class AppUrlServiceService {
       BAY_EQUIP_LIST: environment.baseUrl + 'getMaster',
       INSIGHTS:    environment.baseUrl  + 'getInsights',
       BAY_EQUIP_UPDATE:environment.baseUrl + 'update',
+      CLEAR_DATA:environment.baseUrl + 'clear',
     }
     return obj[param];
   }

@@ -39,7 +39,6 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
   }
   logout(){
-    console.log("logout")
     this.router.navigate(['/login'])
   }
 

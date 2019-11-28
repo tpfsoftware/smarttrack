@@ -6,14 +6,14 @@
         {{editRow.bay_id}}
         </div>
 </div>
-<div fxLayout="row" class="truck">
+<div *ngIf="noBag || editRow.name=='Baggage'" fxLayout="row" class="truck">
     <h4>BAGGAGE TRUCK</h4>
 </div>
 <div fxLayout="row" fxLayoutGap="20px">
         <button *ngIf="editRow.name=='Baggage'" Class="bag_equip" fxFlex="25" >{{editRow.name}}</button>
         <button [ngClass]="{'bag_equip': bagSel, 'bag_default': !bagSel}" *ngFor="let bag of baggage" fxFlex="25" (click)="bagSelect(bag);">{{bag}}</button>
 </div>
-<div fxLayout="row">
+<div *ngIf="nocat || editRow.name=='Catering'" fxLayout="row">
         <h4>Catering</h4> 
 </div> 
 <div fxLayout="row" fxLayoutGap="20px">
@@ -21,14 +21,14 @@
                 
         <button [ngClass]="{'cat_equip': catSel, 'cat_default': !catSel}" *ngFor="let cater of catering" fxFlex="25" (click)="catSelect(cater);">{{cater}}</button>                           
     </div>                    
-<div fxLayout="row">
+<div *ngIf="noLad || editRow.name=='Step Ladder'" fxLayout="row">
         <h4>Step Ladder</h4> 
 </div> 
 <div fxLayout="row" fxLayoutGap="20px">
                 <button *ngIf="editRow.name=='Step Ladder'" Class="lad_equip" fxFlex="25" >{{editRow.name}}</button>
         <button [ngClass]="{'lad_equip': ladSel, 'lad_default': !ladSel}" *ngFor="let lad of ladder" fxFlex="25" (click)="ladSelect(lad);">{{lad}}</button>                        
 </div>
-<div fxLayout="row">
+<div *ngIf="noBus || editRow.name=='Bus'" fxLayout="row">
         <h4>Bus</h4> 
 </div>
 <div fxLayout="row" fxLayoutGap="20px">

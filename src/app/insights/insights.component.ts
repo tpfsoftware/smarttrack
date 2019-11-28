@@ -78,7 +78,7 @@ export class InsightsComponent implements OnInit {
         },
         scaleLabel: {
           display: true,
-          labelString: 'HOUR',
+          labelString: 'HOURS',
           fontColor: '#606060'
         },
         ticks: {

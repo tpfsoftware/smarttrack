@@ -25,9 +25,13 @@ export class EditAssetComponent implements OnInit {
   ladSel:boolean=false;
   busSel:boolean=false;
   editRow:any;
+  noBag:boolean=false;
+  noCat:boolean=false;
+  noLad:boolean=false;
+  noBus:boolean=false;
   constructor( private dialogRef: MatDialogRef<EditAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
    this.editRow= this.details.bayDet;
-   console.log(this.editRow)
+  //  console.log(this.editRow)
    }
 
   ngOnInit() {
@@ -36,86 +40,109 @@ export class EditAssetComponent implements OnInit {
   getMaster(){
     this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
       if (res.status === true) {
-        console.log(res.data)
+        // console.log(res.data)
         this.bayTypes=res.data.bay;
-        console.log(res.data.equipment)
+        // console.log(res.data.equipment)
         let list=[]
         list=res.data.equipment
-        console.log(list)
+        // console.log(list)
        let final_list:any;
        let listAll=[];
       
         final_list=_.each(list,function(obj){
           if(obj.bay_id==null){
-            console.log("in",obj)
+            // console.log("in",obj)
 listAll.push(obj)
           }
         })
-        console.log(listAll)
+        // console.log(listAll)
        let truck_bag= _.findWhere(listAll, (({name: "Baggage"})?({name: "Baggage"}):[]));
        if(truck_bag!=undefined){
         this.baggage.push(truck_bag.name)
+        this.noBag=true
+       }else{
+         this.noBag=false
        }
      
        let cat= _.findWhere(listAll, (({name: "Catering"})?({name: "Catering"}):[]));
 if(cat!=undefined){
   this.catering.push(cat.name)
+  this.noCat=true
+}else{
+  this.noCat=false
 }
        
        let step= _.findWhere(listAll, (({name: "Step Ladder"})?({name: "Step Ladder"}):[]));
        if(step!=undefined){
         this.ladder.push(step.name)
+        this.noLad=true
+      }else{
+        this.noLad=false
       }
        
        let bu= _.findWhere(listAll, (({name: "Bus"})?({name: "Bus"}):[]));
        if(bu!=undefined){
         this.buses.push(bu.name)
+        this.noBus=true
+       }else{
+         this.noBus=false
        }
        
       }
     })
-    console.log(this.baggage,"bags")
+    // console.log(this.baggage,"bags")
   }
   bagSelect(e:any){
     this.bagSel=true;
-console.log(e,"event")
+// console.log(e,"event")
 this.equip.push(e);
-console.log(this.equip)
+// console.log(this.equip)
   }
   catSelect(e:any){
     this.catSel=true;
-console.log(e,"event")
+// console.log(e,"event")
 this.equip.push(e);
-console.log(this.equip)
+// console.log(this.equip)
   }
   ladSelect(e:any){
     this.ladSel=true;
-console.log(e,"event")
+// console.log(e,"event")
 this.equip.push(e);
-console.log(this.equip)
+// console.log(this.equip)
   }
   busSelect(e:any){
     this.busSel=true;
-console.log(e,"event")
+// console.log(e,"event")
 this.equip.push(e);
-console.log(this.equip)
+// console.log(this.equip)
   }
   cancel(){
     this.dialogRef.close();
   }
   done(){
      this.dialogRef.close('RELOAD');
-  console.log(this.mode);
-  console.log(this.editRow.bay_id);
-  console.log(this.equip.push(this.editRow.name))
+  // console.log(this.mode);
+  // console.log(this.editRow.bay_id);
+  // console.log(this.equip.push(this.editRow.name))
   let equip_update:any={"name":[],"bay_id":''};
-  console.log(equip_update)
+  // console.log(equip_update)
   equip_update.name=this.equip;
   equip_update.bay_id=this.editRow.bay_id;
-  console.log(equip_update)
-  this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
-    console.log(res)
+  // console.log(equip_update)
+  let clear_det:any={"bay_id":''};
+  clear_det.bay_id=this.editRow.bay_id;
+  
+  this.services.create(this.appUrl.geturlfunction('CLEAR_DATA'),clear_det).subscribe(res => {
+      // console.log(res)
+      if(res.status==true){
+         this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
+    // console.log(res)
   })
+      }
+    })
+  // this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
+  //   console.log(res)
+  // })
     // this.dialogRef.close();
   }
 
