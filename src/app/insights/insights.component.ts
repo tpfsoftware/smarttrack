@@ -136,8 +136,8 @@ export class InsightsComponent implements OnInit {
 
         for (let index = 0; index < this.equipUsage.length; index++) {
           const element = this.equipUsage[index];
-          // var value = element.used / element.total * 100;
-          // element.value = value.toFixed(0);
+          var value = element.used / element.total * 100;
+          element.value = value.toFixed(0);
           element.icon = 'assets/insights/pro-' + element.name + '.svg'
         }
 

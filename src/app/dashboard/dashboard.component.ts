@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   center = { lng: 80.1667154, lat: 12.991957 };
 
   assetMarkers: any = [];
-  showEquip: boolean;
+  showEquip: boolean = false;
   markers: any = [];
   dupMarkers: any = [];
   value: any;
@@ -50,7 +50,6 @@ export class DashboardComponent implements OnInit {
         var resTotal = res.data;
         bays = resTotal.bay;
         assets = resTotal.equipment;
-
         for (let index = 0; index < bays.length; index++) {
           const element = bays[index];
           element.icons = { url: 'assets/dashboard/bay.svg', scaledSize: { height: 25, width: 25 } }
@@ -66,7 +65,7 @@ export class DashboardComponent implements OnInit {
           this.assetMarkers = assets;
           this.dupMarkers = assets;
         }
-        else if(value == 'refresh' && this.showEquip == false){
+        else if (value == 'refresh' && this.showEquip == false) {
           this.assetMarkers = assets;
           this.dupMarkers = assets;
         }
@@ -81,7 +80,7 @@ export class DashboardComponent implements OnInit {
     this.initMap('init');
     this.showEquip = false;
   }
-  
+
 
   clickedMarker(value, index) {
     var selectedEquips = [];

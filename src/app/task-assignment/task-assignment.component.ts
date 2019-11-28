@@ -35,7 +35,7 @@ export class TaskAssignmentComponent implements OnInit {
       position: {
           right: '0',
       },
-      // minHeight: '96vh',
+      minHeight: '60vh',
       width: '400px',
       maxHeight: '100vh',
       panelClass: 'editFlight',
@@ -56,7 +56,7 @@ export class TaskAssignmentComponent implements OnInit {
       position: {
           right: '0',
       },
-      // minHeight: '96vh',
+      minHeight: '60vh',
       width: '400px',
       maxHeight: '100vh',
       panelClass: 'addNewflight',
