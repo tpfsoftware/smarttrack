@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
@@ -31,7 +32,10 @@
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "underscore": "^1.9.1",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "@angular/cli": "~8.3.19",
+    "@angular/compiler-cli": "~8.2.14",
+    "typescript": "~3.5.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.19",
@@ -53,5 +57,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
+  },
+  "engines": {
+    "node": "10.17.0",
+    "npm": "6.11.3"
   }
 }
