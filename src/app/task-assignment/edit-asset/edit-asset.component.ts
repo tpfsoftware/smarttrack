@@ -19,7 +19,7 @@ export class EditAssetComponent implements OnInit {
   bayName:any;
   load:any;
   truck:any;
-  equip:any;
+  equip:any[]=[];
   bagSel:boolean=false;
   catSel:boolean=false;
   ladSel:boolean=false;
@@ -79,25 +79,25 @@ if(cat!=undefined){
   bagSelect(e:any){
     this.bagSel=true;
 console.log(e,"event")
-this.equip=e;
+this.equip.push(e);
 console.log(this.equip)
   }
   catSelect(e:any){
     this.catSel=true;
 console.log(e,"event")
-this.equip=e;
+this.equip.push(e);
 console.log(this.equip)
   }
   ladSelect(e:any){
     this.ladSel=true;
 console.log(e,"event")
-this.equip=e;
+this.equip.push(e);
 console.log(this.equip)
   }
   busSelect(e:any){
     this.busSel=true;
 console.log(e,"event")
-this.equip=e;
+this.equip.push(e);
 console.log(this.equip)
   }
   cancel(){
@@ -107,8 +107,8 @@ console.log(this.equip)
      this.dialogRef.close('RELOAD');
   console.log(this.mode);
   console.log(this.editRow.bay_id);
-  console.log(this.equip)
-  let equip_update:any={"name":'',"bay_id":''};
+  console.log(this.equip.push(this.editRow.name))
+  let equip_update:any={"name":[],"bay_id":''};
   console.log(equip_update)
   equip_update.name=this.equip;
   equip_update.bay_id=this.editRow.bay_id;

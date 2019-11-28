@@ -99,8 +99,11 @@ export class TaskAssignmentComponent implements OnInit {
 
   });
   modalRef.afterClosed().subscribe(result => {
-      // this.timeline.off('select', function(){});
-  });
+    console.log(result)
+    if (result !== undefined) {
+      this.getMaster();
+    }
+});
   }
   add(){
     console.log("clicked");
