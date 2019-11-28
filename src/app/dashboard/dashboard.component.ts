@@ -34,7 +34,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.initMap('init');
     setInterval(() => {
-      console.log("set interval calling")
       this.initMap('refresh');
     }, 5000);
   }
@@ -51,7 +50,6 @@ export class DashboardComponent implements OnInit {
         var resTotal = res.data;
         bays = resTotal.bay;
         assets = resTotal.equipment;
-        console.log("calling init")
         for (let index = 0; index < bays.length; index++) {
           const element = bays[index];
           element.icons = { url: 'assets/dashboard/bay.svg', scaledSize: { height: 25, width: 25 } }
@@ -68,7 +66,6 @@ export class DashboardComponent implements OnInit {
           this.dupMarkers = assets;
         }
         else if (value == 'refresh' && this.showEquip == false) {
-          console.log("refresh")
           this.assetMarkers = assets;
           this.dupMarkers = assets;
         }
