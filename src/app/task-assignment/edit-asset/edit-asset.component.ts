@@ -126,9 +126,10 @@ this.equip.push(e);
   // console.log(this.equip.push(this.editRow.name))
   let equip_update:any={"name":[],"bay_id":''};
   // console.log(equip_update)
+  this.equip=this.editRow.name
   equip_update.name=this.equip;
   equip_update.bay_id=this.editRow.bay_id;
-  // console.log(equip_update)
+  console.log(equip_update)
   let clear_det:any={"bay_id":''};
   clear_det.bay_id=this.editRow.bay_id;
   
@@ -140,9 +141,9 @@ this.equip.push(e);
   })
       }
     })
-  // this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
-  //   console.log(res)
-  // })
+  this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
+    console.log(res)
+  })
     // this.dialogRef.close();
   }
 

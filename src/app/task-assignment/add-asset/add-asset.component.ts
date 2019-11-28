@@ -20,7 +20,7 @@ export class AddAssetComponent implements OnInit {
   bayName:any;
   load:any;
   truck:any;
-  equip:any;
+  equip:any[]=[];
   bagSel:boolean=false;
   catSel:boolean=false;
   ladSel:boolean=false;
@@ -151,7 +151,9 @@ this.bayName=data
     equip_update.name=this.equip;
     equip_update.bay_id=this.bayName;
     // console.log(equip_update)
-    let clear_det=equip_update.bay_id;
+    let clear_det:any={"bay_id":''};
+  clear_det.bay_id=equip_update.bay_id;
+    // let clear_det=equip_update.bay_id;
     this.services.create(this.appUrl.geturlfunction('CLEAR_DATA'),clear_det).subscribe(res => {
       // console.log(res)
       if(res.status==true){
