@@ -142,7 +142,6 @@ this.equip.push(e);
 this.bayName=data
   }
   add(){
-    this.dialogRef.close('RELOAD');
     // console.log(this.mode);
     // console.log(this.bayName);
     // console.log(this.equip)
@@ -158,6 +157,9 @@ this.bayName=data
       // console.log(res)
       if(res.status==true){
          this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
+           if(res.status==true){
+            this.dialogRef.close('RELOAD');
+           }
     // console.log(res)
   })
       }

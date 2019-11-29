@@ -26,6 +26,7 @@ export class TaskAssignmentComponent implements OnInit {
   getMaster(){
     this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
       if (res.status === true) {
+        console.log("task assign",res.data)
         this.fullList=res.data.equipment_new;      
       }
     })
@@ -66,6 +67,7 @@ export class TaskAssignmentComponent implements OnInit {
 
   });
   modalRef.afterClosed().subscribe(result => {
+    console.log("after closed",result)
       if (result !== undefined) {
         this.getMaster();
       }
