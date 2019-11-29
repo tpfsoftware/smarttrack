@@ -40,6 +40,7 @@ html {
 .car-border {
   border: solid 1px #C7C8CA;
   margin-bottom: 6%;
+  margin: 0px -16px;
 }
 
 
@@ -62,13 +63,15 @@ html {
   position: absolute;
   bottom: 2%;
   right: 2%;
+  cursor: pointer;
   z-index: 100;
 }
 
-.add-butn button{
+.add-butn button {
   border-radius: 20px;
   border: solid 1px #ED2024;
   color: #FFFFFF;
+  cursor: pointer;
   font-size: 173%;
 }
 
