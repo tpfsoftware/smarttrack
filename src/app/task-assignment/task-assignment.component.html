@@ -36,10 +36,10 @@
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Baggage Truck</h5>
                                                 <div fxFlex="80">
-                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20x">
-                                                                <h5 class="equip" *ngIf="equip=='Baggage'"
+                                                        <div fxLayout="row" fxLayoutGap="20x">
+                                                                <h5 *ngFor="let bag of list.name.Baggage" class="equip" 
                                                                         fxFlex="50">
-                                                                        {{equip}}</h5>
+                                                                        {{bag.name}}</h5>
 
                                                         </div>
                                                 </div>
@@ -47,10 +47,10 @@
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Catering</h5>
                                                 <div fxFlex="80">
-                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20px">
-                                                                <h5 class="equip" *ngIf="equip=='Catering'"
+                                                        <div fxLayout="row" fxLayoutGap="20px">
+                                                                <h5 *ngFor="let cat of list.name.Catering" class="equip" 
                                                                         style="background-color:#B2B7FF" fxFlex="50">
-                                                                        {{equip}}</h5>
+                                                                        {{cat.name}}</h5>
 
                                                         </div>
                                                 </div>
@@ -58,10 +58,10 @@
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Step Ladder</h5>
                                                 <div fxFlex="80">
-                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20px">
-                                                                <h5 *ngIf="equip=='Step Ladder'" class="equip"
+                                                        <div fxLayout="row" fxLayoutGap="20px">
+                                                                <h5 *ngFor="let step of list.name['Step Ladder']" class="equip"
                                                                         style="background-color:#95E48D" fxFlex="50">
-                                                                        {{equip}}</h5>
+                                                                        {{step.name}}</h5>
                                                                        
                                                         </div>
                                                 </div>
@@ -69,10 +69,10 @@
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Bus</h5>
                                                 <div fxFlex="80">
-                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20px">
-                                                                <h5 class="equip" *ngIf="equip=='Bus'"
+                                                        <div fxLayout="row" fxLayoutGap="20px">
+                                                                <h5 *ngFor="let bus of list.name.Bus" class="equip"
                                                                         style="background-color:#B6B6B6" fxFlex="50">
-                                                                        {{equip}}</h5>
+                                                                        {{bus.name}}</h5>
                                                         </div>
                                                 </div>
                                         </div>

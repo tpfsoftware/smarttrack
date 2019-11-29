@@ -24,11 +24,22 @@ export class TaskAssignmentComponent implements OnInit {
     this.getMaster();
   }
   getMaster(){
-    this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
-      if (res.status === true) {
+    this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_MAPPING')).subscribe(res => {
+      // if (res.status ==1) {
+    //     this.isbnsource.getBooks(this.isbn).subscribe(
+    //       data => { this.foundBooks = data.json();
+    //  this.foundBooks = Array.of(this.foundBooks); 
+    //        },
+    //       err => console.error(err), 
+    //       () => console.log('getBooks completed') 
+    //       );
         console.log("task assign",res.data)
-        this.fullList=res.data.equipment_new;      
-      }
+        let list=res.result;
+       let listAll= list.filter(li => li.name != null)
+        console.log(listAll)
+        this.fullList=listAll; 
+        console.log(this.fullList)     
+      // }
     })
   }
   edit(datas:any){
