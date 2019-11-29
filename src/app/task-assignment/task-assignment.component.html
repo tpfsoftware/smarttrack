@@ -10,13 +10,11 @@
 <div fxLayout="row wrap">
         <div class="bay-title" *ngFor="let list of fullList" fxFlex="40">
                 <div class="bay-info">
-                        <div style="background-color: rgb(0, 50, 124);border-top-left-radius: 12px;border-top-right-radius: 12px;">
+                        <div class="bay-section">
                                 <div fxLayout="row">
-                                        <h4 style="margin-left: 4%;" fxFlex="90">{{list.bay_id}}</h4>
-                                        <h4 style="margin-right: 3%;color:#AEE1FF !important;font-size: 69%" fxFlex="10"
-                                                (click)="edit(list)"> Edit</h4>
+                                        <h4 class="bay-sec-title" fxFlex="90">{{list.bay_id}}</h4>
+                                        <h4 class="edit-icon" fxFlex="10" (click)="edit(list)">EDIT</h4>
                                 </div>
-
                         </div>
                 </div>
                 <div class="bay-card">
@@ -36,40 +34,41 @@
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Baggage Truck</h5>
                                                 <div fxFlex="80">
-                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20x">
-                                                                <h5 class="equip" *ngIf="equip=='Baggage'"
-                                                                        fxFlex="50">
+                                                        <div *ngFor="let equip of list.name" fxLayout="row"
+                                                                fxLayoutGap="20x">
+                                                                <h5 class="equip" *ngIf="equip=='Baggage'" fxFlex="50">
                                                                         {{equip}}</h5>
-
                                                         </div>
                                                 </div>
                                         </div>
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Catering</h5>
                                                 <div fxFlex="80">
-                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20px">
+                                                        <div *ngFor="let equip of list.name" fxLayout="row"
+                                                                fxLayoutGap="20px">
                                                                 <h5 class="equip" *ngIf="equip=='Catering'"
                                                                         style="background-color:#B2B7FF" fxFlex="50">
                                                                         {{equip}}</h5>
-
                                                         </div>
                                                 </div>
                                         </div>
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Step Ladder</h5>
                                                 <div fxFlex="80">
-                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20px">
+                                                        <div *ngFor="let equip of list.name" fxLayout="row"
+                                                                fxLayoutGap="20px">
                                                                 <h5 *ngIf="equip=='Step Ladder'" class="equip"
                                                                         style="background-color:#95E48D" fxFlex="50">
                                                                         {{equip}}</h5>
-                                                                       
+
                                                         </div>
                                                 </div>
                                         </div>
                                         <div fxLayout="row" fxLayoutGap="5px">
                                                 <h5 fxFlex="20">Bus</h5>
                                                 <div fxFlex="80">
-                                                        <div *ngFor="let equip of list.name" fxLayout="row" fxLayoutGap="20px">
+                                                        <div *ngFor="let equip of list.name" fxLayout="row"
+                                                                fxLayoutGap="20px">
                                                                 <h5 class="equip" *ngIf="equip=='Bus'"
                                                                         style="background-color:#B6B6B6" fxFlex="50">
                                                                         {{equip}}</h5>
@@ -84,9 +83,10 @@
         bottom: 2%;
         right: 2%;
         z-index: 100;">
-                        <button style="border-radius: 20px;
+                <button style="border-radius: 20px;
                             border: solid 1px #ED2024;
-                                    color: #FFFFFF; font-size: 173%; " mat-raised-button color="warn" (click)="add()">+</button>
-                
-                </div>
+                                    color: #FFFFFF; font-size: 173%; " mat-raised-button color="warn"
+                        (click)="add()">+</button>
+
+        </div>
 </div>

@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
   markers: any = [];
   dupMarkers: any = [];
   value: any;
+  selectedBay: any;
 
 
 
@@ -35,7 +36,7 @@ export class DashboardComponent implements OnInit {
     this.initMap('init');
     setInterval(() => {
       this.initMap('refresh');
-    }, 5000);
+    }, 10000);
   }
 
 
@@ -52,7 +53,7 @@ export class DashboardComponent implements OnInit {
         assets = resTotal.equipment;
         for (let index = 0; index < bays.length; index++) {
           const element = bays[index];
-          element.icons = { url: 'assets/dashboard/bay.svg', scaledSize: { height: 25, width: 25 } }
+          element.icons = { url: 'assets/dashboard/bay.svg', scaledSize: { height: 30, width: 30 } }
         }
 
         for (let index = 0; index < assets.length; index++) {
@@ -68,6 +69,19 @@ export class DashboardComponent implements OnInit {
         else if (value == 'refresh' && this.showEquip == false) {
           this.assetMarkers = assets;
           this.dupMarkers = assets;
+        }
+        else if (value == 'refresh' && this.showEquip == true) {
+          this.dupMarkers = assets;
+          console.log("inside bay  refresh")
+          var selectedEquips = [];
+          selectedEquips = _.where(this.dupMarkers, { bay_id: this.selectedBay });
+          for (let index = 0; index < selectedEquips.length; index++) {
+            const element = selectedEquips[index];
+            element.icons = { url: 'assets/dashboard/' + element.icon + '-icon.svg', scaledSize: { height: 30, width: 30 } }
+          }
+          if (selectedEquips.length) {
+            this.assetMarkers = selectedEquips;
+          }
         }
 
       }
@@ -85,6 +99,7 @@ export class DashboardComponent implements OnInit {
   clickedMarker(value, index) {
     var selectedEquips = [];
     var selectedBays = [];
+    this.selectedBay = value;
     selectedEquips = _.where(this.dupMarkers, { bay_id: value });
     for (let index = 0; index < selectedEquips.length; index++) {
       const element = selectedEquips[index];
