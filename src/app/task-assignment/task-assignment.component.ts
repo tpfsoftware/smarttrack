@@ -24,16 +24,28 @@ export class TaskAssignmentComponent implements OnInit {
     this.getMaster();
   }
   getMaster(){
-    this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
-      if (res.status === true) {
-        this.fullList=res.data.equipment_new;      
-      }
+    this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_MAPPING')).subscribe(res => {
+      // if (res.status ==1) {
+    //     this.isbnsource.getBooks(this.isbn).subscribe(
+    //       data => { this.foundBooks = data.json();
+    //  this.foundBooks = Array.of(this.foundBooks); 
+    //        },
+    //       err => console.error(err), 
+    //       () => console.log('getBooks completed') 
+    //       );
+        console.log("task assign",res.data)
+        let list=res.result;
+       let listAll= list.filter(li => li.name != null)
+        console.log(listAll)
+        this.fullList=listAll; 
+        console.log(this.fullList)     
+      // }
     })
   }
   edit(datas:any){
     const modalRef = this.dialog.open(EditAssetComponent, {
       position: {
-          right: '0',
+          right: '15px',
       },
       minHeight: '60vh',
       width: '400px',
@@ -54,7 +66,7 @@ export class TaskAssignmentComponent implements OnInit {
   add(){
     const modalRef = this.dialog.open(AddAssetComponent, {
       position: {
-          right: '0',
+          right: '15px',
       },
       minHeight: '60vh',
       width: '400px',
@@ -66,6 +78,7 @@ export class TaskAssignmentComponent implements OnInit {
 
   });
   modalRef.afterClosed().subscribe(result => {
+    console.log("after closed",result)
       if (result !== undefined) {
         this.getMaster();
       }

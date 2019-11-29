@@ -42,13 +42,54 @@ html {
   margin-bottom: 6%;
 }
 
+
+.content-class {
+  line-height: 2;
+}
+
 .equip {
-  background-color: #FFBBB9;
   border-radius: 8px;
-  text-align: center;
   padding: 10px;
   margin-top: 0%;
   border: none;
+  justify-content: center;
+  height: 30px;
+  align-items: center;
+  display: flex;
+}
+
+.add-butn {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  z-index: 100;
+}
+
+.add-butn button{
+  border-radius: 20px;
+  border: solid 1px #ED2024;
+  color: #FFFFFF;
+  font-size: 173%;
+}
+
+.baggage {
+  background-color: #FFBBB9;
+  margin: 4px !important;
+}
+
+.catering {
+  background-color: #B2B7FF;
+  margin: 4px !important;
+}
+
+.stepladder {
+  background-color: #95E48D;
+  margin: 4px !important;
+}
+
+.bus {
+  background-color: #B6B6B6;
+  margin: 4px !important;
 }
 
 .bay-section {
@@ -65,4 +106,23 @@ html {
   margin-right: 3%;
   color: #AEE1FF !important;
   font-size: 69%
+}
+
+.pull-right {
+  text-align: right;
+}
+
+.asset-org {
+  letter-spacing: 0;
+  color: #666666;
+  opacity: 1;
+  font-size: 16px;
+}
+
+.asset-no {
+  font-size: 32px;
+  letter-spacing: 0;
+  color: #000000;
+  opacity: 1;
+  font-weight: 450;
 }
