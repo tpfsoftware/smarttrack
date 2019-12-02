@@ -157,9 +157,9 @@ this.equip.Ladder.push(e);
   }
   busSelect(e:any){
     this.busSel=true;
-// console.log(e,"event")
+console.log(e,"event")
 this.equip.Bus.push(e);
-// console.log(this.equip)
+console.log(this.equip)
   }
   cancel(){
     this.dialogRef.close();
