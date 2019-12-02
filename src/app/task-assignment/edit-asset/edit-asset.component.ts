@@ -38,8 +38,11 @@ export class EditAssetComponent implements OnInit {
   noCat:boolean=false;
   noLad:boolean=false;
   noBus:boolean=false;
+  apiDatas:any;
   constructor( private dialogRef: MatDialogRef<EditAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
    this.editRow= this.details.bayDet;
+   this.apiDatas=this.details.apiData;
+   console.log("api data",this.apiDatas)
    console.log(this.editRow.name)
    this.equipData(this.editRow.name);
    }
@@ -77,13 +80,13 @@ export class EditAssetComponent implements OnInit {
   console.log(this.equip,"initial equip")
 }
   getMaster(){
-    this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
-      if (res.status === true) {
+    // this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
+    //   if (res.status === true) {
         // console.log(res.data)
-        this.bayTypes=res.data.bay;
+        this.bayTypes=this.apiDatas.bay;
         // console.log(res.data.equipment)
         let list=[]
-        list=res.data.equipment
+        list=this.apiDatas.equipment
         // console.log(list)
        let final_list:any;
        let listAll=[];
@@ -133,8 +136,8 @@ if(cat!=undefined){
          this.noBus=false
        }
        
-      }
-    })
+    //   }
+    // })
     // console.log(this.baggage,"bags")
   }
   bagSelect(e:any){
@@ -164,6 +167,22 @@ console.log(this.equip)
   cancel(){
     this.dialogRef.close();
   }
+  equipRemove(val:any){
+    console.log(val,"remove")
+    if(val.type=="Baggage"){
+      this.equip.Baggage=[]
+    }
+    if(val.type=="Catering"){
+      this.equip.Catering=[]
+    }
+    if(val.type=="Step Ladder"){
+      this.equip.Ladder=[]
+    }
+    if(val.type=="Bus"){
+      this.equip.Bus=[]
+    }
+  }
+
   done(){
     
   // console.log(this.mode);

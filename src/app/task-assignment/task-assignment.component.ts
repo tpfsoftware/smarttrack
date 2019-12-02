@@ -18,6 +18,7 @@ export class TaskAssignmentComponent implements OnInit {
   ladder:any=[];
   buses:any=[];
   fullList:any[]=[];
+  upDateData:any[];
   constructor(private dialog:MatDialog,private appUrl:AppUrlServiceService,private services:AppServiceService) { }
 
   ngOnInit() {
@@ -26,7 +27,8 @@ export class TaskAssignmentComponent implements OnInit {
   getMaster(){
     this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_MAPPING')).subscribe(res => {
       if(res.status==1){
-        console.log("task assign",res.data)
+        this.upDateData=res;
+        console.log("task assign",res)
         let list=res.result;
        let listAll= list.filter(li => li.name != null)
         console.log(listAll)
@@ -46,7 +48,8 @@ export class TaskAssignmentComponent implements OnInit {
       panelClass: 'editFlight',
       data: {
           mode: 'EDIT',
-          bayDet:datas
+          bayDet:datas,
+          apiData:this.upDateData
       },
 
   });
@@ -67,6 +70,7 @@ export class TaskAssignmentComponent implements OnInit {
       panelClass: 'addNewflight',
       data: {
           mode: 'ADD',
+          apiData:this.upDateData
       },
 
   });

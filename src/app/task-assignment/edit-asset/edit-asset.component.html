@@ -12,7 +12,7 @@
 <div fxLayout="row" fxLayoutGap="20px">
         <div  fxFlex="50">
         <div fxLayout="row" *ngFor="let bag of editRow.name.Baggage">
-                        <button *ngIf="noBag || bag.type=='Baggage'" Class="bag_equip" fxFlex="25" >{{bag.name}}</button>
+                        <button *ngIf="noBag || bag.type=='Baggage'" Class="bag_equip" fxFlex="25" (click)="equipRemove(bag)">{{bag.name}}</button>
 
         </div>
         <button [ngClass]="{'bag_equip': bagSel, 'bag_default': !bagSel}" *ngFor="let bag of baggage" fxFlex="25" (click)="bagSelect(bag);">{{bag}}</button></div>
@@ -24,7 +24,7 @@
 <div fxLayout="row" fxLayoutGap="20px">
                 <div  fxFlex="50">
                 <div fxLayout="row" *ngFor="let cat of editRow.name.Catering">
-                                <button *ngIf="noCat || cat.type=='Catering'" Class="cat_equip" fxFlex="25" >{{cat.name}}</button>
+                                <button *ngIf="noCat || cat.type=='Catering'" Class="cat_equip" fxFlex="25" (click)="equipRemove(cat)">{{cat.name}}</button>
         
                 </div>
                 <button [ngClass]="{'cat_equip': catSel, 'cat_default': !catSel}" *ngFor="let cat of catering" fxFlex="25" (click)="catSelect(cat);">{{cat}}</button></div>
@@ -36,7 +36,7 @@
 <div fxLayout="row" fxLayoutGap="20px">
         <div  fxFlex="50">
         <div fxLayout="row" *ngFor="let lad of editRow.name['Step Ladder']">
-                        <button *ngIf="noLad || lad.type=='Step Ladder'" Class="lad_equip" fxFlex="25" >{{lad.name}}</button>
+                        <button *ngIf="noLad || lad.type=='Step Ladder'" Class="lad_equip" fxFlex="25" (click)="equipRemove(lad)">{{lad.name}}</button>
 
         </div>
         <button [ngClass]="{'lad_equip': ladSel, 'lad_default': !ladSel}" *ngFor="let lad of ladder" fxFlex="25" (click)="ladSelect(lad);">{{lad}}</button>                        
@@ -48,16 +48,12 @@
 <div fxLayout="row" fxLayoutGap="20px">
                 <div  fxFlex="50">
                 <div fxLayout="row" *ngFor="let bus of editRow.name.Bus">
-                                <button *ngIf="noBus || bus.type=='Bus'" Class="bus_equip" fxFlex="25" >{{bus.name}}</button>
+                                <button *ngIf="noBus || bus.type=='Bus'" Class="bus_equip" fxFlex="25" (click)="equipRemove(bus)">{{bus.name}}</button>
         
                 </div>
                 <button [ngClass]="{'bus_equip': busSel, 'bus_default': !busSel}" *ngFor="let bus of buses" fxFlex="25" (click)="busSelect(bus);">{{bus}}</button>                        
         </div>
         </div>
-<!-- <div fxLayout="row" fxLayoutGap="20px">
-                <button *ngIf="editRow.name=='Bus'" Class="bus_equip" fxFlex="25" >{{editRow.name}}</button>
-        <button [ngClass]="{'bus_equip': busSel, 'bus_default': !busSel}" *ngFor="let bus of buses" fxFlex="25" (click)="busSelect(bus);">{{bus}}</button>
-</div>   -->
 <div fxLayout="row" class="act-btn" fxLayoutAlign="center" fxLayoutGap="40px"> 
             <button fxFlex="30" class="cancel-btn" mat-raised-button (click)="cancel()">CANCEL</button>
     

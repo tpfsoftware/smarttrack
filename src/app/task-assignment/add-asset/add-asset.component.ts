@@ -37,24 +37,27 @@ export class AddAssetComponent implements OnInit {
   noCat:boolean=false;
   noLad:boolean=false;
   noBus:boolean=false;
+  apiDatas:any;
 
   constructor( private dialogRef: MatDialogRef<AddAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
     // console.log(details)
     this.mode=this.details.mode;
+    this.apiDatas=this.details.apiData;
+    console.log("api data",this.apiDatas)
    }
 
   ngOnInit() {
     this.getMaster();
   }
   getMaster(){
-    this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
-      if (res.status === true) {
-        console.log(res.data)
-        let b_id=res.data.bay;
+    // this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
+    //   if (res.status === true) {
+        
+        let b_id=this.apiDatas.bay;
         
         // console.log(res.data.equipment)
         let list=[]
-        list=res.data.equipment
+        list=this.apiDatas.equipment
         console.log(list)
        let final_list:any;
        let listAll=[];
@@ -116,8 +119,8 @@ this.noCat=false
         this.noBus=false;
        }
        
-      }
-    })
+    //   }
+    // })
   }
   bagSelect(e:any){
     this.bagSel=true;
