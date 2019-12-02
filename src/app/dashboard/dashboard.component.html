@@ -4,7 +4,7 @@
 
         <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.name, i)"
             [latitude]="m.lat" [longitude]="m.lng" [iconUrl]="m.icons"
-            [label]="{color: '#000041',fontWeight: 'bold',fontSize:'12px',text:m.name}" [markerDraggable]="false">
+            [label]="{color: '#000041',fontWeight: 'bold',fontSize:'13px',text:m.name}" [markerDraggable]="false">
             <agm-info-window #infoWindow>
                 <strong>{{m.name}}</strong>
             </agm-info-window>

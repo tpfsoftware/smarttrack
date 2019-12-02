@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
   value: any;
   selectedBay: any;
   counter: number = 10000;
+  refresh: any;
 
 
 
@@ -36,14 +37,15 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.initMap('init');
 
-    
-    setInterval(() => {
+
+    this.refresh = setInterval(() => {
       this.initMap('refresh');
-      console.log(this.counter)
     }, this.counter);
   }
 
-
+  ngOnDestroy() {
+    clearInterval(this.refresh);
+  }
 
 
 
