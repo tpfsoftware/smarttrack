@@ -20,7 +20,15 @@ export class AddAssetComponent implements OnInit {
   bayName:any;
   load:any;
   truck:any;
-  equip:any[]=[];
+  equip:any={
+    "Baggage":[],
+  
+    "Catering":[],
+    
+    "Ladder":[],
+    
+    "Bus":[]
+  }
   bagSel:boolean=false;
   catSel:boolean=false;
   ladSel:boolean=false;
@@ -41,23 +49,24 @@ export class AddAssetComponent implements OnInit {
   getMaster(){
     this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
       if (res.status === true) {
-        // console.log(res.data)
+        console.log(res.data)
         let b_id=res.data.bay;
         
         // console.log(res.data.equipment)
         let list=[]
         list=res.data.equipment
-        // console.log(list)
+        console.log(list)
        let final_list:any;
        let listAll=[];
       
         final_list=_.each(list,function(obj){
-          if(obj.bay_id==null){
-            // console.log("in",obj)
+          if(obj.bay_id==null || obj.bay_id ==""){
+            console.log("in",obj)
 listAll.push(obj)
           }
         })
-        let equi_list = list.filter(li => li.bay_id != null)
+        console.log(listAll,"all list")
+        let equi_list = list.filter(li => (li.bay_id != null || li.bay_id !=""))
         // console.log(equi_list)
         let result1=b_id;
         let result2=equi_list;
@@ -71,7 +80,7 @@ listAll.push(obj)
       })
         // console.log(result)
         this.bayTypes=result;
-       let truck_bag= _.findWhere(listAll, (({name: "Baggage"})?({name: "Baggage"}):[]));
+       let truck_bag= _.findWhere(listAll, (({type: "Baggage"})?({type: "Baggage"}):[]));
        if(truck_bag!=undefined){
         this.baggage.push(truck_bag.name)
         // console.log(this.baggage);
@@ -80,7 +89,7 @@ listAll.push(obj)
         this.noBag=false;
        }
     //  let fil_bay=
-       let cat= _.findWhere(listAll, (({name: "Catering"})?({name: "Catering"}):[]));
+       let cat= _.findWhere(listAll, (({type: "Catering"})?({type: "Catering"}):[]));
 if(cat!=undefined){
   this.catering.push(cat.name)
   // console.log(this.catering)
@@ -89,7 +98,7 @@ if(cat!=undefined){
 this.noCat=false
 }
        
-       let step= _.findWhere(listAll, (({name: "Step Ladder"})?({name: "Step Ladder"}):[]));
+       let step= _.findWhere(listAll, (({type: "Step Ladder"})?({type: "Step Ladder"}):[]));
        if(step!=undefined){
         this.ladder.push(step.name)
         // console.log(this.ladder)
@@ -98,7 +107,7 @@ this.noCat=false
         this.noLad=false;
       }
        
-       let bu= _.findWhere(listAll, (({name: "Bus"})?({name: "Bus"}):[]));
+       let bu= _.findWhere(listAll, (({type: "Bus"})?({type: "Bus"}):[]));
        if(bu!=undefined){
         this.buses.push(bu.name)
         // console.log(this.buses)
@@ -113,25 +122,25 @@ this.noCat=false
   bagSelect(e:any){
     this.bagSel=true;
 // console.log(e,"event")
-this.equip.push(e);
+this.equip.Baggage.push(e);
 // console.log(this.equip)
   }
   catSelect(e:any){
     this.catSel=true;
 // console.log(e,"event")
-this.equip.push(e);
+this.equip.Catering.push(e);
 // console.log(this.equip)
   }
   ladSelect(e:any){
     this.ladSel=true;
 // console.log(e,"event")
-this.equip.push(e);
+this.equip.Ladder.push(e);
 // console.log(this.equip)
   }
   busSelect(e:any){
     this.busSel=true;
 // console.log(e,"event")
-this.equip.push(e);
+this.equip.Bus.push(e);
 // console.log(this.equip)
   }
   cancel(){
@@ -145,24 +154,29 @@ this.bayName=data
     // console.log(this.mode);
     // console.log(this.bayName);
     // console.log(this.equip)
-    let equip_update:any={"name":[],"bay_id":''};
+    let equip_update:any={
+      "bay_id":'',
+      "name":{
+        "Baggage":[],
+      
+        "Catering":[],
+        
+        "Step Ladder":[],
+        
+        "Bus":[]
+      }
+    };
     // console.log(equip_update)
-    equip_update.name=this.equip;
+    equip_update.name.Baggage=this.equip.Baggage;
+  equip_update.name.Catering=this.equip.Catering;
+  equip_update.name['Step Ladder']=this.equip.Ladder;
+  equip_update.name.Bus=this.equip.Bus;
     equip_update.bay_id=this.bayName;
-    // console.log(equip_update)
-    let clear_det:any={"bay_id":''};
-  clear_det.bay_id=equip_update.bay_id;
-    // let clear_det=equip_update.bay_id;
-    this.services.create(this.appUrl.geturlfunction('CLEAR_DATA'),clear_det).subscribe(res => {
-      // console.log(res)
-      if(res.status==true){
+    console.log(equip_update)
          this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
            if(res.status==true){
             this.dialogRef.close('RELOAD');
            }
-    // console.log(res)
-  })
-      }
     })
   }
   

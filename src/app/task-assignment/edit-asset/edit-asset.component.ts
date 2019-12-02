@@ -3,6 +3,7 @@ import {  MatDialogRef,MAT_DIALOG_DATA } from '@angular/material';
 import {AppUrlServiceService} from '../../app-url-service.service';
 import {AppServiceService} from '../../app-service.service';
 import * as _ from 'underscore';
+import { IfStmt } from '@angular/compiler';
 @Component({
   selector: 'app-edit-asset',
   templateUrl: './edit-asset.component.html',
@@ -39,7 +40,7 @@ export class EditAssetComponent implements OnInit {
   noBus:boolean=false;
   constructor( private dialogRef: MatDialogRef<EditAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
    this.editRow= this.details.bayDet;
-   console.log(this.editRow.name['Step Ladder'].length)
+   console.log(this.editRow.name)
    this.equipData(this.editRow.name);
    }
 
@@ -53,17 +54,20 @@ export class EditAssetComponent implements OnInit {
         this.equip.Baggage.push(data.Baggage[a].name)
       }
       console.log("Bag",this.equip)
-    }else if(data.Catering.length!=0){
+    }
+    if(data.Catering.length!=0){
       for(let b=0;b<data.Catering.length;b++){
         this.equip.Catering.push(data.Catering[b].name)
       }
       console.log("cat",this.equip)
-    }else if(data['Step Ladder'].length!=0){
+    }
+    if(data['Step Ladder'].length!=0){
       for(let c=0;c<data['Step Ladder'].length;c++){
         this.equip.Ladder.push(data['Step Ladder'][c].name)
       }
       console.log("lad",this.equip)
-    }else{
+    }
+    if(data.Bus.length!=0){
       for(let d=0;d<data.Bus.length;d++){
         this.equip.Bus.push(data.Bus[d].name)
       }
@@ -85,7 +89,7 @@ export class EditAssetComponent implements OnInit {
        let listAll=[];
       
         final_list=_.each(list,function(obj){
-          if(obj.bay_id==null){
+          if(obj.bay_id==null || obj.bay_id ===""){
             // console.log("in",obj)
 listAll.push(obj)
           }
@@ -141,7 +145,7 @@ console.log(this.equip)
   }
   catSelect(e:any){
     this.catSel=true;
-// console.log(e,"event")
+console.log(this.equip,"CAT SEL")
 this.equip.Catering.push(e);
 // console.log(this.equip)
   }
@@ -161,6 +165,7 @@ this.equip.Bus.push(e);
     this.dialogRef.close();
   }
   done(){
+    
   // console.log(this.mode);
   // console.log(this.editRow.bay_id);
   // console.log(this.equip.push(this.editRow.name))
