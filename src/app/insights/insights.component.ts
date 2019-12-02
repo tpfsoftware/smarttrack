@@ -137,6 +137,7 @@ export class InsightsComponent implements OnInit {
         for (let index = 0; index < this.equipUsage.length; index++) {
           const element = this.equipUsage[index];
           var value = element.used / element.total * 100;
+          console.log(value)
           element.value = value.toFixed(0);
           element.icon = 'assets/insights/pro-' + element.name + '.svg'
         }
@@ -144,7 +145,7 @@ export class InsightsComponent implements OnInit {
         for (let index = 0; index < this.equipChart.length; index++) {
           const element = this.equipChart[index];
           labels.push(element.name)
-          data.push(element.id)
+          data.push(element.hour)
           data1.push(element.count)
 
         }
