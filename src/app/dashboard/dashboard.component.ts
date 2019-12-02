@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   dupMarkers: any = [];
   value: any;
   selectedBay: any;
+  counter: number = 10000;
 
 
 
@@ -34,9 +35,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.initMap('init');
+
+    
     setInterval(() => {
       this.initMap('refresh');
-    }, 10000);
+      console.log(this.counter)
+    }, this.counter);
   }
 
 
@@ -49,6 +53,7 @@ export class DashboardComponent implements OnInit {
       var bays = [], assets = [];
       if (res.status == true) {
         var resTotal = res.data;
+        this.counter = resTotal.counter;
         bays = resTotal.bay;
         assets = resTotal.equipment;
         for (let index = 0; index < bays.length; index++) {
@@ -83,6 +88,7 @@ export class DashboardComponent implements OnInit {
             this.assetMarkers = selectedEquips;
           }
         }
+
 
       }
     })
