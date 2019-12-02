@@ -171,15 +171,19 @@ console.log(this.equip)
     console.log(val,"remove")
     if(val.type=="Baggage"){
       this.equip.Baggage=[]
+      this.bagSel=true
     }
     if(val.type=="Catering"){
       this.equip.Catering=[]
+      this.catSel=true
     }
     if(val.type=="Step Ladder"){
       this.equip.Ladder=[]
+      this.ladSel=true
     }
     if(val.type=="Bus"){
       this.equip.Bus=[]
+      this.busSel=true;
     }
   }
 
