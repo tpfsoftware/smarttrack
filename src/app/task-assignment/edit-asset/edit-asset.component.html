@@ -12,7 +12,7 @@
 <div fxLayout="row" fxLayoutGap="20px">
         <div  fxFlex="50">
         <div fxLayout="row" *ngFor="let bag of editRow.name.Baggage">
-                        <button *ngIf="noBag || bag.type=='Baggage'" Class="bag_equip" fxFlex="25" (click)="equipRemove(bag)">{{bag.name}}</button>
+                        <button *ngIf="noBag || bag.type=='Baggage'" [ngClass]="{'bag_equip': !bagSel, 'bag_default': bagSel}"  fxFlex="25" (click)="equipRemove(bag)">{{bag.name}}</button>
 
         </div>
         <button [ngClass]="{'bag_equip': bagSel, 'bag_default': !bagSel}" *ngFor="let bag of baggage" fxFlex="25" (click)="bagSelect(bag);">{{bag}}</button></div>
@@ -36,7 +36,7 @@
 <div fxLayout="row" fxLayoutGap="20px">
         <div  fxFlex="50">
         <div fxLayout="row" *ngFor="let lad of editRow.name['Step Ladder']">
-                        <button *ngIf="noLad || lad.type=='Step Ladder'" Class="lad_equip" fxFlex="25" (click)="equipRemove(lad)">{{lad.name}}</button>
+                        <button *ngIf="noLad || lad.type=='Step Ladder'" [ngClass]="{'lad_equip': !ladSel, 'lad_default': ladSel}"  fxFlex="25" (click)="equipRemove(lad)">{{lad.name}}</button>
 
         </div>
         <button [ngClass]="{'lad_equip': ladSel, 'lad_default': !ladSel}" *ngFor="let lad of ladder" fxFlex="25" (click)="ladSelect(lad);">{{lad}}</button>                        
@@ -48,7 +48,7 @@
 <div fxLayout="row" fxLayoutGap="20px">
                 <div  fxFlex="50">
                 <div fxLayout="row" *ngFor="let bus of editRow.name.Bus">
-                                <button *ngIf="noBus || bus.type=='Bus'" Class="bus_equip" fxFlex="25" (click)="equipRemove(bus)">{{bus.name}}</button>
+                                <button *ngIf="noBus || bus.type=='Bus'" [ngClass]="{'bus_equip': !busSel, 'bus_default': busSel}"  fxFlex="25" (click)="equipRemove(bus)">{{bus.name}}</button>
         
                 </div>
                 <button [ngClass]="{'bus_equip': busSel, 'bus_default': !busSel}" *ngFor="let bus of buses" fxFlex="25" (click)="busSelect(bus);">{{bus}}</button>                        

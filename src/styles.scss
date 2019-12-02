@@ -34,7 +34,7 @@ p {
 
 .toolbar {
   display: flex;
-  margin:-2px;
+  margin: -2px;
   align-items: center;
   color: white;
   font-weight: 600;
@@ -100,8 +100,19 @@ p {
   float: right;
   height: 30px;
   width: 30px;
-  margin-left: 10px!important;
+  margin-left: 10px !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button {
+  outline: none;
+}
