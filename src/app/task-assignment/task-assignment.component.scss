@@ -1,45 +1,131 @@
-.container{
-    margin: 5%;
-}
-.bay-info{
-    height:44px;
-    color: white;
-    font-size: 21px;
+.container {
+  margin: 5%;
 }
 
-.bay-title
-{
-    margin:30px;
+.bay-info {
+  height: 44px;
+  color: white;
+  font-size: 21px;
 }
 
-.bay-card{
-    margin-top: -10px;
+.bay-title {
+  margin: 30px;
 }
-.search-icon{
-    color:#666666
+
+.bay-card {
+  margin-top: -10px;
 }
+
+.search-icon {
+  color: #666666
+}
+
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-    height:0px !important;
+  height: 0px !important;
 }
-html{
-    overflow: hidden;
+
+html {
+  overflow: hidden;
 }
-.asset-title{
-    border-radius: 13px !important;
+
+.asset-title {
+  border-radius: 13px !important;
 }
-.bay-det{
-    margin-top: -4% !important;
-    // color: #FFFFFF;
+
+.bay-det {
+  margin-top: -4% !important;
+  // color: #FFFFFF;
 }
-.car-border{
-    border: solid 1px #C7C8CA;
-    margin-bottom: 6%;
+
+.car-border {
+  border: solid 1px #C7C8CA;
+  margin-bottom: 6%;
+  margin: 0px -16px;
 }
-.equip{
-    background-color: #FFBBB9;
-    border-radius: 8px;
-    text-align: center;
-    padding: 10px;
-    margin-top: 0%;
-    border:none;
+
+
+.content-class {
+  line-height: 2;
+}
+
+.equip {
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 0%;
+  border: none;
+  justify-content: center;
+  height: 30px;
+  align-items: center;
+  display: flex;
+}
+
+.add-butn {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.add-butn button {
+  border-radius: 20px;
+  border: solid 1px #ED2024;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 173%;
+}
+
+.baggage {
+  background-color: #FFBBB9;
+  margin: 4px !important;
+}
+
+.catering {
+  background-color: #B2B7FF;
+  margin: 4px !important;
+}
+
+.stepladder {
+  background-color: #95E48D;
+  margin: 4px !important;
+}
+
+.bus {
+  background-color: #B6B6B6;
+  margin: 4px !important;
+}
+
+.bay-section {
+  background-color: rgb(0, 50, 124);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.bay-sec-title {
+  margin-left: 4%;
+}
+
+.edit-icon {
+  margin-right: 3%;
+  color: #AEE1FF !important;
+  font-size: 69%
+}
+
+.pull-right {
+  text-align: right;
+}
+
+.asset-org {
+  letter-spacing: 0;
+  color: #666666;
+  opacity: 1;
+  font-size: 16px;
+}
+
+.asset-no {
+  font-size: 32px;
+  letter-spacing: 0;
+  color: #000000;
+  opacity: 1;
+  font-weight: 450;
 }

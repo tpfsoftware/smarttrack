@@ -38,7 +38,7 @@ export class TaskAssignmentComponent implements OnInit {
   edit(datas:any){
     const modalRef = this.dialog.open(EditAssetComponent, {
       position: {
-          right: '0',
+          right: '15px',
       },
       minHeight: '60vh',
       width: '400px',
@@ -59,7 +59,7 @@ export class TaskAssignmentComponent implements OnInit {
   add(){
     const modalRef = this.dialog.open(AddAssetComponent, {
       position: {
-          right: '0',
+          right: '15px',
       },
       minHeight: '60vh',
       width: '400px',
