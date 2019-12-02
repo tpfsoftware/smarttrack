@@ -14,7 +14,7 @@ export class AppUrlServiceService {
     {
       BAY_EQUIP_LIST: environment.baseUrl + 'getMaster',
       INSIGHTS:    environment.baseUrl  + 'getInsights',
-      BAY_EQUIP_UPDATE:environment.baseUrl + 'update',
+      BAY_EQUIP_UPDATE:environment.baseUrl + 'updateEquipment',
       CLEAR_DATA:environment.baseUrl + 'clear',
       BAY_EQUIP_MAPPING:environment.baseUrl + 'getBayMaster'
     }

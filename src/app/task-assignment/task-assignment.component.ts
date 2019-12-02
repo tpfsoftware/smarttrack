@@ -25,21 +25,14 @@ export class TaskAssignmentComponent implements OnInit {
   }
   getMaster(){
     this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_MAPPING')).subscribe(res => {
-      // if (res.status ==1) {
-    //     this.isbnsource.getBooks(this.isbn).subscribe(
-    //       data => { this.foundBooks = data.json();
-    //  this.foundBooks = Array.of(this.foundBooks); 
-    //        },
-    //       err => console.error(err), 
-    //       () => console.log('getBooks completed') 
-    //       );
+      if(res.status==1){
         console.log("task assign",res.data)
         let list=res.result;
        let listAll= list.filter(li => li.name != null)
         console.log(listAll)
         this.fullList=listAll; 
-        console.log(this.fullList)     
-      // }
+        console.log(this.fullList) 
+      }    
     })
   }
   edit(datas:any){
