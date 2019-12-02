@@ -19,7 +19,15 @@ export class EditAssetComponent implements OnInit {
   bayName:any;
   load:any;
   truck:any;
-  equip:any[]=[];
+  equip:any={
+    "Baggage":[],
+  
+    "Catering":[],
+    
+    "Ladder":[],
+    
+    "Bus":[]
+  }
   bagSel:boolean=false;
   catSel:boolean=false;
   ladSel:boolean=false;
@@ -31,12 +39,39 @@ export class EditAssetComponent implements OnInit {
   noBus:boolean=false;
   constructor( private dialogRef: MatDialogRef<EditAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
    this.editRow= this.details.bayDet;
-  //  console.log(this.editRow)
+   console.log(this.editRow.name['Step Ladder'].length)
+   this.equipData(this.editRow.name);
    }
 
   ngOnInit() {
     this.getMaster();
   }
+  equipData(data:any){
+    console.log(data.Baggage);
+    if(data.Baggage.length!=0){
+      for(let a=0;a<data.Baggage.length;a++){
+        this.equip.Baggage.push(data.Baggage[a].name)
+      }
+      console.log("Bag",this.equip)
+    }else if(data.Catering.length!=0){
+      for(let b=0;b<data.Catering.length;b++){
+        this.equip.Catering.push(data.Catering[b].name)
+      }
+      console.log("cat",this.equip)
+    }else if(data['Step Ladder'].length!=0){
+      for(let c=0;c<data['Step Ladder'].length;c++){
+        this.equip.Ladder.push(data['Step Ladder'][c].name)
+      }
+      console.log("lad",this.equip)
+    }else{
+      for(let d=0;d<data.Bus.length;d++){
+        this.equip.Bus.push(data.Bus[d].name)
+      }
+      console.log("bus",this.equip)
+    }
+ 
+  console.log(this.equip,"initial equip")
+}
   getMaster(){
     this.services.getAll(this.appUrl.geturlfunction('BAY_EQUIP_LIST')).subscribe(res => {
       if (res.status === true) {
@@ -55,32 +90,38 @@ export class EditAssetComponent implements OnInit {
 listAll.push(obj)
           }
         })
-        // console.log(listAll)
-       let truck_bag= _.findWhere(listAll, (({name: "Baggage"})?({name: "Baggage"}):[]));
+        console.log(listAll)
+       let truck_bag= _.findWhere(listAll, (({type: "Baggage"})?({type: "Baggage"}):[]));
+       console.log(truck_bag)
        if(truck_bag!=undefined){
         this.baggage.push(truck_bag.name)
+        console.log(this.baggage)
         this.noBag=true
        }else{
          this.noBag=false
        }
      
-       let cat= _.findWhere(listAll, (({name: "Catering"})?({name: "Catering"}):[]));
+       let cat= _.findWhere(listAll, (({type: "Catering"})?({type: "Catering"}):[]));
 if(cat!=undefined){
   this.catering.push(cat.name)
   this.noCat=true
+  console.log("yes")
 }else{
+  console.log("no")
   this.noCat=false
 }
        
-       let step= _.findWhere(listAll, (({name: "Step Ladder"})?({name: "Step Ladder"}):[]));
+       let step= _.findWhere(listAll, (({type: "Step Ladder"})?({type: "Step Ladder"}):[]));
        if(step!=undefined){
         this.ladder.push(step.name)
+        console.log(this.ladder,"yes step")
         this.noLad=true
       }else{
+        console.log("no step")
         this.noLad=false
       }
        
-       let bu= _.findWhere(listAll, (({name: "Bus"})?({name: "Bus"}):[]));
+       let bu= _.findWhere(listAll, (({type: "Bus"})?({type: "Bus"}):[]));
        if(bu!=undefined){
         this.buses.push(bu.name)
         this.noBus=true
@@ -95,53 +136,56 @@ if(cat!=undefined){
   bagSelect(e:any){
     this.bagSel=true;
 // console.log(e,"event")
-this.equip.push(e);
-// console.log(this.equip)
+this.equip.Baggage.push(e);
+console.log(this.equip)
   }
   catSelect(e:any){
     this.catSel=true;
 // console.log(e,"event")
-this.equip.push(e);
+this.equip.Catering.push(e);
 // console.log(this.equip)
   }
   ladSelect(e:any){
     this.ladSel=true;
 // console.log(e,"event")
-this.equip.push(e);
+this.equip.Ladder.push(e);
 // console.log(this.equip)
   }
   busSelect(e:any){
     this.busSel=true;
 // console.log(e,"event")
-this.equip.push(e);
+this.equip.Bus.push(e);
 // console.log(this.equip)
   }
   cancel(){
     this.dialogRef.close();
   }
   done(){
-     this.dialogRef.close('RELOAD');
   // console.log(this.mode);
   // console.log(this.editRow.bay_id);
   // console.log(this.equip.push(this.editRow.name))
-  let equip_update:any={"name":[],"bay_id":''};
-  // console.log(equip_update)
-  this.equip=this.editRow.name
-  equip_update.name=this.equip;
+  let equip_update:any={
+    "bay_id":'',
+    "name":{
+      "Baggage":[],
+    
+      "Catering":[],
+      
+      "Step Ladder":[],
+      
+      "Bus":[]
+    }
+  };
+  console.log(this.editRow.name)
+  console.log(this.equip,"final equip");
+  equip_update.name.Baggage=this.equip.Baggage;
+  equip_update.name.Catering=this.equip.Catering;
+  equip_update.name['Step Ladder']=this.equip.Ladder;
+  equip_update.name.Bus=this.equip.Bus;
   equip_update.bay_id=this.editRow.bay_id;
   console.log(equip_update)
-  let clear_det:any={"bay_id":''};
-  clear_det.bay_id=this.editRow.bay_id;
-  
-  this.services.create(this.appUrl.geturlfunction('CLEAR_DATA'),clear_det).subscribe(res => {
-      // console.log(res)
-      if(res.status==true){
-         this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
-    // console.log(res)
-  })
-      }
-    })
   this.services.create(this.appUrl.geturlfunction('BAY_EQUIP_UPDATE'),equip_update).subscribe(res => {
+    this.dialogRef.close('RELOAD');
     console.log(res)
   })
     // this.dialogRef.close();
