@@ -19,6 +19,7 @@ export class TaskAssignmentComponent implements OnInit {
   buses:any=[];
   fullList:any[]=[];
   upDateData:any[];
+  enableAdd:boolean=false;
   constructor(private dialog:MatDialog,private appUrl:AppUrlServiceService,private services:AppServiceService) { }
 
   ngOnInit() {
@@ -34,7 +35,16 @@ export class TaskAssignmentComponent implements OnInit {
         console.log(listAll)
         this.fullList=listAll; 
         console.log(this.fullList) 
-      }    
+        let assigned_list=res.equipment
+        let assigned= assigned_list.filter(obj => obj.bay_id == null || obj.bay_id ==="")
+        console.log(assigned) 
+        if(assigned.length==0){
+          this.enableAdd=false
+        }else{
+          this.enableAdd=true
+        }
+      }  
+      
     })
   }
   edit(datas:any){

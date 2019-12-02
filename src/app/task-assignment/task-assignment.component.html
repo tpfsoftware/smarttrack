@@ -4,7 +4,7 @@
                         <div class="bay-section">
                                 <div fxLayout="row">
                                         <h4 class="bay-sec-title" fxFlex="90">{{list.bay_id}}</h4>
-                                        <h4 class="edit-icon" fxFlex="10" (click)="edit(list)">EDIT</h4>
+                                        <h4 *ngIf="enableAdd" class="edit-icon" fxFlex="10" (click)="edit(list)">EDIT</h4>
                                 </div>
                         </div>
                 </div>
@@ -68,7 +68,7 @@
                         </mat-card>
                 </div>
         </div>
-        <div class="add-butn">
+        <div *ngIf="enableAdd" class="add-butn">
                 <button mat-raised-button color="warn" (click)="add()">+</button>
         </div>
 </div>

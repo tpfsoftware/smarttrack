@@ -42,8 +42,6 @@ export class EditAssetComponent implements OnInit {
   constructor( private dialogRef: MatDialogRef<EditAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
    this.editRow= this.details.bayDet;
    this.apiDatas=this.details.apiData;
-   console.log("api data",this.apiDatas)
-   console.log(this.editRow.name)
    this.equipData(this.editRow.name);
    }
 
@@ -51,18 +49,16 @@ export class EditAssetComponent implements OnInit {
     this.getMaster();
   }
   equipData(data:any){
-    console.log(data.Baggage);
     if(data.Baggage.length!=0){
       for(let a=0;a<data.Baggage.length;a++){
         this.equip.Baggage.push(data.Baggage[a].name)
       }
-      console.log("Bag",this.equip)
+
     }
     if(data.Catering.length!=0){
       for(let b=0;b<data.Catering.length;b++){
         this.equip.Catering.push(data.Catering[b].name)
-      }
-      console.log("cat",this.equip)
+      }  
     }
     if(data['Step Ladder'].length!=0){
       for(let c=0;c<data['Step Ladder'].length;c++){
@@ -188,10 +184,6 @@ console.log(this.equip)
   }
 
   done(){
-    
-  // console.log(this.mode);
-  // console.log(this.editRow.bay_id);
-  // console.log(this.equip.push(this.editRow.name))
   let equip_update:any={
     "bay_id":'',
     "name":{
