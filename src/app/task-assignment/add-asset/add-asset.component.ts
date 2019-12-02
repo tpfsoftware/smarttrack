@@ -53,7 +53,6 @@ export class AddAssetComponent implements OnInit {
         let b_id=this.apiDatas.bay;
         let list=[]
         list=this.apiDatas.equipment
-       (list)
        let final_list:any;
        let listAll=[];
       
