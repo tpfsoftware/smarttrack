@@ -38,6 +38,7 @@ export class AddAssetComponent implements OnInit {
   noLad:boolean=false;
   noBus:boolean=false;
   apiDatas:any;
+  count:number=0;
 
   constructor( private dialogRef: MatDialogRef<AddAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
     //(details)
@@ -103,6 +104,8 @@ this.noCat=false
          }
   bagSelect(e:any){
     this.bagSel=true;
+    // this.count=+1;
+    // console.log(this.count)
 this.equip.Baggage.push(e);
   }
   catSelect(e:any){

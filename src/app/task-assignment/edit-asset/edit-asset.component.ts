@@ -39,6 +39,10 @@ export class EditAssetComponent implements OnInit {
   noLad:boolean=false;
   noBus:boolean=false;
   apiDatas:any;
+  bagCount:number=1;
+  catCount:number=1;
+  ladCount:number=1;
+  busCount:number=1;
   constructor( private dialogRef: MatDialogRef<EditAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
    this.editRow= this.details.bayDet;
    this.apiDatas=this.details.apiData;
@@ -136,51 +140,86 @@ if(cat!=undefined){
     // })
     // console.log(this.baggage,"bags")
   }
-  bagSelect(e:any){
-    this.bagSel=true;
-// console.log(e,"event")
-this.equip.Baggage.push(e);
-console.log(this.equip)
+  bagSelect(e:any,c:any){
+    console.log(c,"count")
+    if(c%2==0){//odd
+      console.log("even");
+      this.bagSel=false;
+      this.equip.Baggage=[]
+      console.log(this.equip)
+    }else{//even
+      console.log("odd")
+      this.bagSel=true;
+      this.equip.Baggage.push(e);
+      console.log(this.equip)
+    }
+    return this.bagCount= this.bagCount+1;
   }
-  catSelect(e:any){
-    this.catSel=true;
-console.log(this.equip,"CAT SEL")
-this.equip.Catering.push(e);
-// console.log(this.equip)
+  catSelect(e:any,c:any){
+    if(c%2==0){//odd
+      console.log("even",c);
+      this.catSel=false;
+      this.equip.Catering=[]
+      console.log(this.equip)
+    }else{//even
+      console.log("odd",c)
+      this.catSel=true;
+      this.equip.Catering.push(e);
+      console.log(this.equip)
+    }
+    return this.catCount= this.catCount+1;
   }
-  ladSelect(e:any){
-    this.ladSel=true;
-// console.log(e,"event")
-this.equip.Ladder.push(e);
-// console.log(this.equip)
+  ladSelect(e:any,c:any){
+    if(c%2==0){//odd
+      console.log("even");
+      this.ladSel=false;
+      this.equip.Ladder=[]
+      console.log(this.equip)
+    }else{//even
+      console.log("odd")
+      this.ladSel=true;
+      this.equip.Ladder.push(e);
+      console.log(this.equip)
+    }
+    return this.ladCount= this.ladCount+1;
   }
-  busSelect(e:any){
-    this.busSel=true;
-console.log(e,"event")
-this.equip.Bus.push(e);
-console.log(this.equip)
+  busSelect(e:any,c:any){
+    if(c%2==0){//odd
+      console.log("even");
+      this.busSel=false;
+      this.equip.Bus=[]
+      console.log(this.equip)
+    }else{//even
+      console.log("odd")
+      this.busSel=true;
+      this.equip.Bus.push(e);
+      console.log(this.equip)
+    }
+    return this.busCount= this.busCount+1;
   }
   cancel(){
     this.dialogRef.close();
   }
-  equipRemove(val:any){
-    console.log(val,"remove")
+  equipRemove(val:any,c:any){
+    console.log(val,"remove",c)
     if(val.type=="Baggage"){
       this.equip.Baggage=[]
       this.bagSel=true
     }
     if(val.type=="Catering"){
       this.equip.Catering=[]
-      this.catSel=true
+      this.catSel=true;
     }
     if(val.type=="Step Ladder"){
       this.equip.Ladder=[]
       this.ladSel=true
     }
     if(val.type=="Bus"){
+      console.log(c,"bus c")
       this.equip.Bus=[]
       this.busSel=true;
     }
+    // return this.count= this.count+1;
   }
 
   done(){
