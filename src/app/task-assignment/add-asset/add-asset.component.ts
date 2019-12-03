@@ -38,7 +38,10 @@ export class AddAssetComponent implements OnInit {
   noLad:boolean=false;
   noBus:boolean=false;
   apiDatas:any;
-  count:number=0;
+  bagCount:number=1;
+  catCount:number=1;
+  ladCount:number=1;
+  busCount:number=1;
 
   constructor( private dialogRef: MatDialogRef<AddAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
     //(details)
@@ -102,24 +105,63 @@ this.noCat=false
         this.noBus=false;
        }
          }
-  bagSelect(e:any){
-    this.bagSel=true;
-    // this.count=+1;
-    // console.log(this.count)
-this.equip.Baggage.push(e);
-  }
-  catSelect(e:any){
-    this.catSel=true;
-this.equip.Catering.push(e);
-  }
-  ladSelect(e:any){
-    this.ladSel=true;
-this.equip.Ladder.push(e);
- }
-  busSelect(e:any){
-    this.busSel=true;
-this.equip.Bus.push(e);
-  }
+         bagSelect(e:any,c:any){
+          console.log(c,"count")
+          if(c%2==0){//odd
+            console.log("even");
+            this.bagSel=false;
+            this.equip.Baggage=[]
+            console.log(this.equip)
+          }else{//even
+            console.log("odd")
+            this.bagSel=true;
+            this.equip.Baggage.push(e);
+            console.log(this.equip)
+          }
+          return this.bagCount= this.bagCount+1;
+        }
+        catSelect(e:any,c:any){
+          if(c%2==0){//odd
+            console.log("even",c);
+            this.catSel=false;
+            this.equip.Catering=[]
+            console.log(this.equip)
+          }else{//even
+            console.log("odd",c)
+            this.catSel=true;
+            this.equip.Catering.push(e);
+            console.log(this.equip)
+          }
+          return this.catCount= this.catCount+1;
+        }
+        ladSelect(e:any,c:any){
+          if(c%2==0){//odd
+            console.log("even");
+            this.ladSel=false;
+            this.equip.Ladder=[]
+            console.log(this.equip)
+          }else{//even
+            console.log("odd")
+            this.ladSel=true;
+            this.equip.Ladder.push(e);
+            console.log(this.equip)
+          }
+          return this.ladCount= this.ladCount+1;
+        }
+        busSelect(e:any,c:any){
+          if(c%2==0){//odd
+            console.log("even");
+            this.busSel=false;
+            this.equip.Bus=[]
+            console.log(this.equip)
+          }else{//even
+            console.log("odd")
+            this.busSel=true;
+            this.equip.Bus.push(e);
+            console.log(this.equip)
+          }
+          return this.busCount= this.busCount+1;
+        }
   cancel(){
     this.dialogRef.close();
   }

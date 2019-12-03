@@ -43,6 +43,10 @@ export class EditAssetComponent implements OnInit {
   catCount:number=1;
   ladCount:number=1;
   busCount:number=1;
+  baCount:number=1;
+  cCount:number=1;
+  lCount:number=1;
+  buCount:number=1;
   constructor( private dialogRef: MatDialogRef<EditAssetComponent>,@Inject(MAT_DIALOG_DATA) public details: any,private appUrl:AppUrlServiceService,private services:AppServiceService) {
    this.editRow= this.details.bayDet;
    this.apiDatas=this.details.apiData;
@@ -135,10 +139,6 @@ if(cat!=undefined){
        }else{
          this.noBus=false
        }
-       
-    //   }
-    // })
-    // console.log(this.baggage,"bags")
   }
   bagSelect(e:any,c:any){
     console.log(c,"count")
@@ -200,24 +200,84 @@ if(cat!=undefined){
   cancel(){
     this.dialogRef.close();
   }
-  equipRemove(val:any,c:any){
+  bagRemove(val:any,c:any){
     console.log(val,"remove",c)
     if(val.type=="Baggage"){
-      this.equip.Baggage=[]
-      this.bagSel=true
+      console.log(val,"bus",c)
+      if(c%2==0){
+        console.log("even")
+        this.equip.Baggage.push(val.name)
+        this.bagSel=false
+        console.log(this.equip)
+        return this.baCount= this.baCount+1;
+       
+      }else{
+        console.log("odd")
+        this.equip.Baggage=[]
+        this.bagSel=true;
+        console.log(this.equip)
+        return this.baCount= this.baCount+1;
+      }
+     
     }
+  }
+  catRemove(val:any,c:any){
     if(val.type=="Catering"){
-      this.equip.Catering=[]
-      this.catSel=true;
+      console.log(val,"bus",c)
+      if(c%2==0){
+        console.log("even")
+        this.equip.Catering.push(val.name)
+        this.catSel=false
+        console.log(this.equip)
+        return this.cCount= this.cCount+1;
+       
+      }else{
+        console.log("odd")
+        this.equip.Catering=[]
+        this.catSel=true;
+        console.log(this.equip)
+        return this.cCount= this.cCount+1;
+      }
     }
+  }
+  ladRemove(val:any,c:any){
     if(val.type=="Step Ladder"){
-      this.equip.Ladder=[]
-      this.ladSel=true
+      console.log(val,"bus",c)
+      if(c%2==0){
+        console.log("even")
+        this.equip.Ladder.push(val.name)
+        this.ladSel=false
+        console.log(this.equip)
+        return this.lCount= this.lCount+1;
+       
+      }else{
+        console.log("odd")
+        this.equip.Ladder=[]
+        this.ladSel=true;
+        console.log(this.equip)
+        return this.lCount= this.lCount+1;
+      }
     }
+  }
+  busRemove(val:any,c:any){
     if(val.type=="Bus"){
-      console.log(c,"bus c")
-      this.equip.Bus=[]
-      this.busSel=true;
+      console.log(val,"bus",c)
+      if(c%2==0){
+        console.log("even")
+        this.equip.Bus.push(val.name)
+        this.busSel=false
+        console.log(this.equip)
+        return this.buCount= this.buCount+1;
+       
+      }else{
+        console.log("odd")
+        
+        this.equip.Bus=[]
+        this.busSel=true;
+        console.log(this.equip)
+        return this.buCount= this.buCount+1;
+      }
+     
     }
     // return this.count= this.count+1;
   }
